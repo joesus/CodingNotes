@@ -1,0 +1,146 @@
+<h1 id="dataTypes">Data Types</h1>
+
+<ul>
+	<li>You can find the data type with the typeof() method.</li>
+</ul>
+
+<h2 id="string">Strings</h2> 
+
+<ul>
+<li>You can input strings with single quotes but JS will return double quotes.</li>
+	<pre>
+	var one = '1';
+	one // "1"
+	</pre>
+<li>You can input strings with double quotes and JS will return double quotes.</li>
+	<pre>
+	var two = "2";
+	two // "2"
+	</pre>
+<li>Using the .length method returns the length of a string.</li>
+	<pre>
+	var string_of_3_letters = "abc";
+	string_of_3_letter.length; // 3
+	</pre>
+<li>The length of an empty string is zero.</li>
+	<pre>
+	var empty_string = "";
+	empty_string.length; // 0
+	</pre>
+<li>The .toString() conversion of a boolean returns true or false.</li>
+	<pre>
+	var yes = true;
+	yes.toString(); // "true"
+
+	var no = false;
+	no.toString(); // "false"
+	</pre>
+<li>The .toString() conversion of an integer with no arguments returns the integer as a string.</li>
+	<pre>
+	var number = 11;
+	number.toString(); // "11"
+	</pre>
+<li>The .toString() conversion of an integer with radix 2 should return base2</li>
+	<pre>
+	var number = 11;
+	number.toString(2); // "1011"
+	</pre>
+<li>The .toString() conversion of an integer with radix 16 should return hexidecimal.</li>
+	<pre>
+	var number = 11;
+	number.toString(16); // "b"
+	</pre>
+<li>The .toString() conversion of a floating point returns a decimal.</li>
+	<pre>
+	var fp = 2.1;
+	p.toString(); // "2.1"
+	</pre>
+<li>The .toString() conversion of Not a Number returns "NaN".</li>
+	<pre>
+	var nan = NaN;
+	nan.toString(); // "NaN"
+	</pre>
+</ul>
+
+<h2 id="booleans">Booleans</h2>
+<ul>
+	<li>String is <span id="boolTrue">true</span> for non-empty strings.</li>
+	<li>String is <span id="boolFalse">false</span> for empty strings.</li>
+	<li>Number is <span id="boolFalse">false</span> for Zero.</li>
+	<li>Number is <span id="boolTrue">true</span> for One.</li>
+	<li>Number is <span id="boolFalse">false</span> for NaN.</li>
+<span id="unary"></span>
+</ul>
+
+<h2>Unary Operators</h2>
+<ul>
+<li>++ increments by 1</li>
+	<pre>
+	var i = 0;
+  i++ // 1
+	</pre>
+<li>-- decrements by 1</li>
+	<pre>
+	var i = 0;
+  i-- // -1
+	</pre>
+<li>The prefix ++ increments by 1 before a statement is evaluated.</li>
+	<pre>
+	var i = 0;
+  var result = 2 - ++i; // 1
+	</pre>
+<li>The postfix ++ increments by 1 after a statement is evaluated.</li>
+	<pre>
+	var i = 0;
+	var result = 2 - i++;
+	i // 1
+	result // 2
+	</pre>
+<span id="BasicMath"></span>
+</ul>
+
+<h2>Basic Math</h2>
+<ul>
+<li>Simple Multiplication works as expected.</li>
+<li>Any number multiplied by NaN returns NaN.</li>
+<li>If all numbers are not zero and Infinity is 1 of the numbers, the result is NaN.</li>
+<li>Infinity times Infinity results in Infinity.</li>
+<li>JS will automatically convert non-Number types to Number via the built-in Number() method before evaluation.</li>
+	<pre>
+	var result = "2" * 3; // 6
+	</pre>
+<li>Simple Division works as expected.</li>
+<li>If either number is NaN, the result of the division operation is NaN.</li>
+<li>If 0 divided by 0, the result is NaN.</li>
+<li>If numerator is non-zero and denominator is 0, result is [-|+]Infinity.</li>
+<li>If Infinity is divided by any number, result [-|+]Infinity.</li>
+<li>JS automatically converts non-Number types to Number via built-in Number() method before evaluation.</li>
+	<pre>
+	var result = "10" / 2; // 5
+	</pre>
+</ul>
+<pre>
+
+	code
+</pre>
+
+<h1 id="context">Context Scope</h1>
+
+numbers
+
+<pre>
+
+</pre>
+
+numbers
+
+
+<h1 id="float">Floats</h1>
+
+floats
+
+<pre>
+
+</pre>
+
+That was floats code. 
