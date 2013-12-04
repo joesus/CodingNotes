@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CodingNotes</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= csrf_meta_tags %>
-</head>
-<body>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= render 'layouts/shim' %>   
+  <%= render 'layouts/device_specific' %>
 
-<%= yield %>
+  <title>CodingNotes</title>
+	
+</head>
+<body data-spy="scroll" data-target="#spyOnThis">
+
+<%= render 'layouts/header' %>
+
+<div class="container">
+	<div class="row">
+<%= render 'layouts/sidebar' %>
+	<div class="col-md-6" id="center-notes">
+ 				<%= yield %>		
+		</div>
+	</div>
+</div>
 
 </body>
 </html>
