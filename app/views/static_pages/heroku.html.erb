@@ -1,3 +1,22 @@
+<% content_for :sidebar do %>
+
+<div class="col-md-3" id="sidebar">
+	<div class="bs-sidebar hidden-print affix" role="complementary" style>
+		<ul class="nav bs-sidenav" id="spyOnThis">
+			<li><%= link_to "Heroku Settings", "#" %>
+				<ul class="nav">
+					<li class><%= link_to "Gems", "#" %></li>
+					<li class><%= link_to "Settings", "#" %></li>
+					<li class><%= link_to "Config", "#" %></li>
+					<li class><%= link_to "Precompile", "#" %></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<% end %>
+
+
 <h1 id="string">Heroku Stuff</h1>
 <br>
 <p class="lead">

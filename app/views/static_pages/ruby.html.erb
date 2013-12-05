@@ -1,8 +1,19 @@
-This is some code, 
-<pre>
-code
-		code
-code
-</pre>
+<% content_for :sidebar do %>
 
-that was some code. 
+<div class="col-md-3" id="sidebar">
+	<div class="bs-sidebar hidden-print affix" role="complementary" style>
+		<ul class="nav bs-sidenav" id="spyOnThis">
+			<li><%= link_to "Ruby Things", "#" %>
+				<ul class="nav">
+					<li class><%= link_to "Thing 1", "#" %></li>
+					<li class><%= link_to "Thing 2", "#" %></li>
+					<li class><%= link_to "Thing 3", "#" %></li>
+					<li class><%= link_to "Thing 4", "#" %></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<% end %>
+
+<h1>Ruby Things</h1>

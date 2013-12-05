@@ -1,32 +1,22 @@
-<h1>StaticPages#home</h1>
+<% content_for :sidebar do %>
 
-This is some code, 
-<pre>
-code
-	code
-code
+<div class="col-md-3" id="sidebar">
+	<div class="bs-sidebar hidden-print affix" role="complementary" style>
+		<ul class="nav bs-sidenav" id="spyOnThis">
+			<li><%= link_to "Joe's Projects", "#" %>
+				<ul class="nav">
+					<li class><%= link_to "Project 1", "#" %></li>
+					<li class><%= link_to "Project 2", "#" %></li>
+					<li class><%= link_to "Project 3", "#" %></li>
+					<li class><%= link_to "Project 4", "#" %></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<% end %>
 
+<h1>About </h1>
 
-
-
-
-
-code 
-
-
-
-
-
-more code
-
-
-
-
-
-
-
-
-code code
-</pre>
-
-that was some code. 
+<p>This is a website I made using Ruby on Rails for the purpose of reviewing and reinforcing concepts and code. To see some of my other projects, check out the links below.</p> 
+<h2>Project 1</h2>
