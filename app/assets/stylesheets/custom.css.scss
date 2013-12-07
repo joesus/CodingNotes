@@ -30,6 +30,9 @@ a {
 pre {
   text-align: left;
   margin-bottom: 40px;
+  white-space: pre;
+  overflow: auto;
+  word-wrap: normal;
 }
 
 /* Sets Background image */

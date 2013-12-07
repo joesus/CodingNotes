@@ -1,29 +1,87 @@
-<h1 id="string">Heroku Stuff</h1>
-<br>
-<p class="lead">
-1. Make sure you have the following in your gemfile:
-<pre>
+<% content_for :sidebar do %>
+
+<div class="col-md-3" id="sidebar">
+	<div class="bs-sidebar hidden-print affix" role="complementary" style>
+		<ul class="nav bs-sidenav" id="spyOnThis">
+			<li class><%= link_to "Heroku Stuff", "#heroku" %>
+				<ul class="nav">
+					<li class><%= link_to "PostGres", "#postgres" %></li>
+					<li class><%= link_to "Config", "#config" %></li>
+					<li class><%= link_to "Troubleshooting", "#trouble" %></li>
+					<li class><%= link_to "Precompile", "#precompile" %></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<% end %>
+
+<h1 id="heroku">Heroku Stuff</h1>
+
+<p class="lead">Heroku is a great tool for making a lightweight, easily deployable database for your Ruby on Rails Application. It can also drive you insane if you don't configure and deploy it in a deliberate fashion. Here are some tips on things to do and things to avoid.</p>
+
+<h2 id="postgres">PostGreSQL</h2>
+	<ul>
+		<li>Postgres, short for PostGreSQL is a great lightweight database that plays nice with heroku. I use the PostGres app since it saves me the extra work of connecting to the database through the terminal.</li>
+			<pre><%= link_to "PostGres App", "http://postgresapp.com/" %></pre>
+		<li>It should configure to open on startup but sometimes you may have to open it manually. If you are having trouble with your migrations, make sure the postgres app is open.</li>
+	</ul>
+
+<h2 id="config">Config</h2>
+	<ul>
+		<li>1. Make sure you have the following in your gemfile:</li>
+<pre class="pre-scrollable">
 gem 'pg', '0.15.1'
 
 group :production do
-  gem 'rails_12factor', '0.0.2'
+	gem 'rails_12factor', '0.0.2'
 </pre> 
-<p class="lead">
-2. Make sure you have the correct settings in config/environments/production.rb
+
+		<li>2. Make sure you have the correct settings in config/environments/production.rb</li>
 <pre>
 config.serve_static_assets = true
 config.assets.compile = true
 config.assets.digest = true
 </pre>
-<p class="lead">
-3. Make sure you add the following to config/application.rb
-<pre>
-class Application < Rails::Application
-  config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-end
+		
+		<li>3. Make sure you add the following to config/application.rb</li>
+<pre-scrollable>
+	class Application < Rails::Application
+	  config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+	end
 </pre>
-<p class="lead">
-4. Precompile your assets through the console before deployment
+		<li>4. Precompile your assets through the console before deployment</li>
 <pre>
 $ RAILS_ENV=production bundle exec rake assets:precompile
 </pre>
+	</ul>
+
+<h2 id="trouble">Basic Troubleshooting</h2>
+	<ul>
+		<br>
+		<li>One of the most common issues I have with Heroku is that certain styling elements, css, glyphs, etc... do not appear after deployment. The first things I do is make sure the public/assets folder is removed from my github repository so that heroku will try and compile itself.</li><br>
+		<li>Another issue I often have with Heroku is that I've made a change to the database in my development environment and have not notified my production environment (heroku). In other words, make sure your migrations are current.</li>
+<pre>
+$ heroku run rake db:migrate 
+</pre>
+		<li>You may need to drop and recreate your postgres db. To start, back up your database. Follow the link below for detailed instructions.</li>
+<pre>
+<%= link_to "Heroku PG Backups", "https://devcenter.heroku.com/articles/pgbackups" %>
+</pre>
+		<li>If you have nothing to backup you can drop and recreate your database.</li>
+<pre>
+$ heroku pg:reset DATABASE
+</pre>
+		<li>The Heroku Console is another useful tool for diving into the nitty gritty.</li>
+<pre>
+$ heroku run rails console
+</pre>
+	</ul>
+
+<h2 id="precompile">Precompiling before Deployment</h2>
+	<ul>
+		<li>If you have removed the public/assets folder and are still having issues with images or styling, try to precompile your assets manually.</li>
+<pre>
+$RAILS_ENV=production rake assets:precompile
+</pre>
+	</ul>

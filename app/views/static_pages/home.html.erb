@@ -1,32 +1,34 @@
-<h1>StaticPages#home</h1>
+<% content_for :sidebar do %>
 
-This is some code, 
-<pre>
-code
-	code
-code
+<div class="col-md-3" id="sidebar">
+	<div class="bs-sidebar hidden-print affix" role="complementary" style>
+		<ul class="nav bs-sidenav" id="spyOnThis">
+			<li><%= link_to "Joe's Projects", "#" %>
+				<ul class="nav">
+					<li class><%= link_to "Project 1", "#" %></li>
+					<li class><%= link_to "Project 2", "#" %></li>
+					<li class><%= link_to "Project 3", "#" %></li>
+					<li class><%= link_to "Project 4", "#" %></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<% end %>
 
+<h1>About </h1>
 
-
-
-
-
-code 
-
-
-
-
-
-more code
-
-
-
-
-
-
-
-
-code code
-</pre>
-
-that was some code. 
+<p class="lead">This is a website I made using Ruby on Rails for the purpose of reviewing and reinforcing concepts and code. To see some of my other projects, check out the links below.</p> 
+<h4 class="lead">
+	<ol>
+		<li><%= link_to "York Street App", "https://yorkst.herokuapp.com/" %>
+			<ul>
+				<li>A resource for the recovery community. Built on Rails, uses Adam Shaw's Full Calendar plugin to link to an admin's google calendar account.</li>
+			</ul>
+		</li>
+		<li>WineCards App</li>
+		<li>Learning Javascript</li>
+		<li>.NET MVC 4 - Movie Rental App</li>
+		<li>CodingNotes - This site.</li>
+	</ol>
+</h4>

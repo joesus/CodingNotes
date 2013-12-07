@@ -19,8 +19,10 @@
 
 <div class="container">
 	<div class="row">
-<%= render 'layouts/sidebar' %>
-	<div class="col-md-6" id="center-notes">
+<%= yield :sidebar %>
+
+<!-- Maybe write a helper so that col is offset when there isn't a :sidebar -->
+  <div class="col-md-6" id="center-notes">
  				<%= yield %>		
 		</div>
 	</div>
