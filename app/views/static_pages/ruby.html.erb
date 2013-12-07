@@ -5,10 +5,9 @@
 		<ul class="nav bs-sidenav" id="spyOnThis">
 			<li><%= link_to "Ruby Things", "#" %>
 				<ul class="nav">
-					<li class><%= link_to "Thing 1", "#" %></li>
-					<li class><%= link_to "Thing 2", "#" %></li>
-					<li class><%= link_to "Thing 3", "#" %></li>
-					<li class><%= link_to "Thing 4", "#" %></li>
+					<li class><%= link_to "Getting Started", "#start" %></li>
+					<li class><%= link_to "Devise", "#devise" %></li>
+					<li class><%= link_to "RVM Gemsets", "#rvm" %></li>
 				</ul>
 			</li>
 		</ul>
@@ -17,3 +16,61 @@
 <% end %>
 
 <h1>Ruby Things</h1>
+
+<h2 id="start">Getting Started</h2>
+	<p class="lead">If you've never used Ruby on Rails before you'll want to utilize some of the great resources out there.</p>
+	<ul>
+		<li>Codeacademy is a great place to learn the foundation of the Ruby language. This is essential.</li>
+<pre>
+<%= link_to "Codeacademy Ruby Track", "http://www.codecademy.com/tracks/ruby" %>
+</pre>
+		<li>Once you have the foundations of the language down, I would check out The Michael Hartl Ruby on Rails Tutorial.</li>
+<pre>
+<%= link_to "Hartl Tutorial", "http://ruby.railstutorial.org/ruby-on-rails-tutorial-book" %>
+</pre>
+		<li>The github repository for the sample_app is a great way to check your work as you go through the tutorial. It helped me gain clarity in areas where the tutorial was a bit vague.</li>
+<pre>
+<%= link_to "Hartl Tutorial Github Repo", "https://github.com/railstutorial/sample_app_rails_4" %>
+</pre>
+		<li>You may have questions about the difference between Rails 3 and Rails 4. Here's a nice explanation.</li>
+<pre>
+<%= link_to "RailsApps Project - Updating Rails", "http://railsapps.github.io/updating-rails.html" %>
+</pre>
+		<li>The Ruby on Rails API is often the best place to start when you have a questions about rails. It's well laid-out and has saved me a thousand times.</li>
+<pre>
+<%= link_to "Ruby on Rails API", "http://api.rubyonrails.org/" %>
+</pre>
+		<li>When the questions is closer related to Ruby than to Rails, I usually check out the language documentation.</li>
+<pre>
+<%= link_to "Ruby-doc.org", "http://www.ruby-doc.org/" %>
+</pre>
+		<li>This is a bit random, but I found this explanation of hashes to be really helpful when I was just starting out.</li>
+<pre>
+<%= link_to "Hashes vs Arrays", "http://www.codecademy.com/forum_questions/51c48cd8282ae399bb001459" %>
+</pre>
+	</ul>
+
+
+<h2 id="devise">Devise</h2>
+	<ul>
+		<li>Here's a walkthrough for setting up user authentication with Devise for a Rails 3 app. It's really helpful.</li>
+<pre>
+<%= link_to "Devise Walkthrough", "https://github.com/fortuity/rails3-subdomain-devise/wiki/Tutorial-%28Walkthrough%29" %>
+</pre>
+		<li>The official Devise Wiki is also a really useful tool for sorting through your options.</li>
+<pre>
+<%= link_to "Devise Wiki", "https://github.com/plataformatec/devise/wiki" %>
+</pre>
+		<li>To mess with your views manually, check out this <%= link_to "stackoverflow post", "http://stackoverflow.com/questions/3546289/override-devise-registrations-controller" %>. I found success with the solution below.</li>
+<pre>
+$ rails generate devise:views
+</pre>
+	</ul>
+
+<h2 id="rvm">Ruby Version Manager</h2>
+	<ul>
+		<li>Managing your default gemsets through rvm can save a lot of time.</li>
+<pre>
+<%= link_to "RVM Gemsets", "http://rvm.io/gemsets" %>
+</pre>
+	</ul>
