@@ -1,34 +1,17 @@
+<!-- placeholder for layout purposes. -->
 <% content_for :sidebar do %>
-
 <div class="col-md-3" id="sidebar">
-	<div class="bs-sidebar hidden-print affix" role="complementary" style>
-		<ul class="nav bs-sidenav" id="spyOnThis">
-			<li><%= link_to "Joe's Projects", "#" %>
-				<ul class="nav">
-					<li class><%= link_to "Project 1", "#" %></li>
-					<li class><%= link_to "Project 2", "#" %></li>
-					<li class><%= link_to "Project 3", "#" %></li>
-					<li class><%= link_to "Project 4", "#" %></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
 </div>
 <% end %>
 
-<h1>About </h1>
-
-<p class="lead">This is a website I made using Ruby on Rails for the purpose of reviewing and reinforcing concepts and code. To see some of my other projects, check out the links below.</p> 
-<h4 class="lead">
-	<ol>
-		<li><%= link_to "York Street App", "https://yorkst.herokuapp.com/" %>
-			<ul>
-				<li>A resource for the recovery community. Built on Rails, uses Adam Shaw's Full Calendar plugin to link to an admin's google calendar account.</li>
-			</ul>
-		</li>
-		<li>WineCards App</li>
-		<li>Learning Javascript</li>
-		<li>.NET MVC 4 - Movie Rental App</li>
-		<li>CodingNotes - This site.</li>
-	</ol>
-</h4>
+<div class="blogpost">
+	<div class="page-header">
+	  <h1>Updates<br>
+	  	<small>I plan on keeping a small journal here for the purposes of a) keeping myself accountable to my own education, and b) sharing what I learn as an aspiring junior developer with anyone who might benefit. To see some of my other projects, check out the <%= link_to "about", about_path %> page.
+	  	</small>
+	  </h1>
+	</div>
+		<p class="lead">Hello World!</p>
+		I've decided to postpone learning sails.js in favor of angular.js. This is mostly just a name recognition issue at this point. I plan on eventually learning the finer distinctions between node-express, sails, angular, ember, etc... but for now I plan on focusing on building a beginner application using
+		angular.js. I look forward to posting more insights as I get better and learn a bit more about what I'm doing here. - 12/12/13
+</div>

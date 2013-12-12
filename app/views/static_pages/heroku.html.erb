@@ -25,36 +25,52 @@
 		<li>Postgres, short for PostGreSQL is a great lightweight database that plays nice with heroku. I use the PostGres app since it saves me the extra work of connecting to the database through the terminal.</li>
 			<pre><%= link_to "PostGres App", "http://postgresapp.com/" %></pre>
 		<li>It should configure to open on startup but sometimes you may have to open it manually. If you are having trouble with your migrations, make sure the postgres app is open.</li>
+		<br>
+		<li>A note on configuring your Rails database. When you first create your new app. Go into <code>config/database.yml</code>Make sure you have the following settings:</li>
+<pre>
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: NameOfYourApp_development
+  pool: 5
+  username: YourComputerUserName //the name before the $ when you open the terminal
+  password:
+  host: localhost
+
+  //Repeat for your production and test environments.
+</pre>
 	</ul>
 
 <h2 id="config">Config</h2>
-	<ul>
-		<li>1. Make sure you have the following in your gemfile:</li>
-<pre class="pre-scrollable">
+	<ol>
+		<li>Make sure you have the following in your gemfile:</li>
+<pre>
 gem 'pg', '0.15.1'
 
 group :production do
 	gem 'rails_12factor', '0.0.2'
+
+//This adds in the gems Heroku previously used to inject as plugins, which are now deprecated.
 </pre> 
 
-		<li>2. Make sure you have the correct settings in config/environments/production.rb</li>
+		<li>Make sure you have the correct settings in config/environments/production.rb</li>
 <pre>
 config.serve_static_assets = true
 config.assets.compile = true
 config.assets.digest = true
 </pre>
 		
-		<li>3. Make sure you add the following to config/application.rb</li>
-<pre-scrollable>
-	class Application < Rails::Application
-	  config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-	end
+		<li>Make sure you add the following to <code>config/application.rb</code></li>
+<pre>
+class Application < Rails::Application
+  config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+end
 </pre>
-		<li>4. Precompile your assets through the console before deployment</li>
+		<li>Precompile your assets through the console before deployment</li>
 <pre>
 $ RAILS_ENV=production bundle exec rake assets:precompile
 </pre>
-	</ul>
+	</ol>
 
 <h2 id="trouble">Basic Troubleshooting</h2>
 	<ul>
@@ -80,8 +96,11 @@ $ heroku run rails console
 
 <h2 id="precompile">Precompiling before Deployment</h2>
 	<ul>
-		<li>If you have removed the public/assets folder and are still having issues with images or styling, try to precompile your assets manually.</li>
+		<li>A second reminder! If you have removed the public/assets folder and are still having issues with images or styling, try to precompile your assets manually.</li>
 <pre>
 $RAILS_ENV=production rake assets:precompile
 </pre>
+
+		<li>Here's an alternative approach. I haven't messed around with it too much, but I plan on digging into it on future projects.</li>
+<pre><%= link_to "Bamboo Post on user-env-compile", "http://new-bamboo.co.uk/blog/2013/07/18/deploying-rails-4-on-heroku" %></pre>
 	</ul>

@@ -1,0 +1,46 @@
+<% content_for :sidebar do %>
+
+<div class="col-md-3" id="sidebar">
+	<div class="bs-sidebar hidden-print affix" role="complementary" style>
+		<ul class="nav bs-sidenav" id="spyOnThis">
+			<li><%= link_to "Joe's Projects", "#" %>
+				<ul class="nav">
+					<li class><%= link_to "Project 1", "#" %></li>
+					<li class><%= link_to "Project 2", "#" %></li>
+					<li class><%= link_to "Project 3", "#" %></li>
+					<li class><%= link_to "Project 4", "#" %></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<% end %>
+
+<div class="page-header">
+  <h1>About<br>
+  	<small>This is a website I made using Ruby on Rails for the purpose of reviewing and reinforcing concepts and code. To see some of my other projects, check out the links below.
+  	</small>
+  </h1>
+</div>
+
+<h4 class="lead">
+	<ol>
+		<li><%= link_to "York Street App", "https://yorkst.herokuapp.com/" %>
+			<div class="tab">
+				<p>A resource for the recovery community. Built using Ruby on Rails, uses Adam Shaw's Full Calendar jquery plugin to link to an admin's google calendar account.</p>
+			</div>
+		</li>
+		<li><%= link_to "WineCards App", "https://winecards.herokuapp.com/" %>
+			<div class="tab">
+				<p>A resource for studying and sharing wine. Built using Ruby on Rails with Devise for an authentication system, it features CRUD resources for users and wines. Check out my github to see a version where I authored my own authentication system.</p>
+			</div>
+		</li>
+		<li><%= link_to "Learning Javascript", "https://github.com/denvercodeclub/learning_javascript" %>
+			<div class="tab">
+				<p>A group project with other members of the <%= link_to "Denver Code Club", "http://www.meetup.com/Denver-Code-Club/" %>. It uses Jasmine, a behavior-driven development framework for testing JavaScript code. I have written many of the tests in my quest to master JavaScript concepts.</p>
+			</div>
+		</li>
+		<li>.NET MVC 4 - Movie Rental App</li>
+		<li>CodingNotes - This site.</li>
+	</ol>
+</h4>

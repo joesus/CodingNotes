@@ -91,6 +91,28 @@ li {
   text-align: left;
 }
 
+.tab > p {
+  font-size: 0.91em;
+  margin-left: 30px;
+}
+
+.blogpost {
+  text-align: left;
+}
+
+.blogpost > .lead {
+    border-top: 1px solid black;
+}
+
+.blogpost > .page-header {
+  margin-top: 0;
+}
+
+// .blogpost > .lead {
+//   text-align: left;
+//   border-top: 1px solid black;
+// }
+
 /*
  * Side navigation
  *
