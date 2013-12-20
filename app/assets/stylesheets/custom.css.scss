@@ -96,15 +96,21 @@ li {
   margin-left: 30px;
 }
 
-.blogpost {
+.blog-post {
   text-align: left;
+  margin-bottom: 20px;
 }
 
-.blogpost > .lead {
+.blog-post > h4 {
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
+.blog-post > .lead {
     border-top: 1px solid black;
 }
 
-.blogpost > .page-header {
+.blog-header > .page-header {
   margin-top: 0;
 }
 
