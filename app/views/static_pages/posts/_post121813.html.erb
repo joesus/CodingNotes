@@ -1,0 +1,34 @@
+<div class="blog-post", id="12-18-13">
+	<p class="lead">Testing Javascript with grunt, jasmine, jasmine-jquery, jshint</p>
+	Here's an issue I confronted recently and overcame. I've been using jasmine to test a bunch of javascript as part of a collaboration with the <%= link_to "Denver Code Club", "http://www.meetup.com/Denver-Code-Club/" %>. See: <%= link_to "learning javascript", about_path %>. When we started getting into jquery, I started having problems. I needed a way to test chunks of html without polluting my test environment. <br><br>
+	I settled on jasmine-jquery as a solution because it works with jasmine and as their site points out, they offer "an API for handling HTML, CSS, and JSON fixtures in your specs". I wrote some tests, an html snippet (or fixture), and launched my tests in a google chrome browser. Then I encountered this:
+<pre>
+<%= link_to image_tag("JasmineFail.png"), class: "img-responsive" %>
+</pre>
+	I couldn't figure out why, I had my html fixture in the right place, I had the jasmine-jquery.js file pointing to my fixture in the right place and per instructions on the jasmine-jquery github page, I had chrome running with the following switch:
+<pre>
+--allow-file-access-from-files
+</pre>
+
+	I wanted to know if the issue was with google chrome or with my testing configuration. I opened the file in Mozilla Firefox and saw this:
+<pre>
+<%= link_to image_tag("JasmineFailFirefox.png"), class: "img-responsive" %>
+</pre>
+
+	In chrome, the error message was 
+<pre>(status: error, message: A network error occured.)</pre>
+	In firefox, the error message was:
+<pre>(status: error, message: Access to restricted URI denied.)</pre>
+	I looked up restricted URI in chrome and came across the suggestion to run chrome with web security disabled. The specific switch statement is: 
+<pre>$ sudo /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security</pre>
+<h4>Viola!</h4>
+<pre>
+<%= link_to image_tag("jasminesuccess.png"), class: "img-responsive" %>
+</pre>	
+
+	Just remember to use the window it opens for testing only since presumably all that web-security is there for your security. 
+
+	It also has a grunt component, this was super easy. I opened terminal to the folder where I hold the project and typed: 
+<pre>$ npm install jasmine-jquery</pre>
+  Now when I type:<pre>$ grunt test</pre> It loads my fixtures and runs the tests with them. - 12/20/13
+</div>
