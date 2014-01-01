@@ -1,3 +1,19 @@
-<h1>JQuery</h1>
+<% content_for :sidebar do %>
 
-<pre>$("p") selects every <p> element on the page.</pre>
+<div class="col-md-3" id="sidebar">
+	<div class="bs-sidebar hidden-print affix" role="complementary" style>
+		<ul class="nav bs-sidenav" id="spyOnThis">
+			<li><%= link_to "Style", "#" %>
+				<ul class="nav">
+					<li class><%= link_to "Puzzle Project", "#" %></li>
+					<li class><%= link_to "CSS", "#" %></li>
+					<li class><%= link_to "Sass", "#" %></li>
+					<li class><%= link_to "SMACSS", "#" %></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<% end %>
+
+<h1>jQuery</h1>

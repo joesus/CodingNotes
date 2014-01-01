@@ -1,6 +1,18 @@
 <!-- placeholder for layout purposes. -->
 <% content_for :sidebar do %>
 <div class="col-md-3" id="sidebar">
+		<div class="bs-sidebar hidden-print affix" role="complementary" style>
+		<ul class="nav bs-sidenav" id="spyOnThis">
+			<li class>
+				<%= link_to "Older Posts", "#" %>
+				<ul class="nav">
+					<li class><%= link_to "Jan 01, 2014", "#01-01-14" %></li>
+					<li class><%= link_to "Dec 29, 2013", "#12-29-13" %></li>
+					<li class><%= link_to "Dec 18, 2013", "#12-18-13" %></li>
+					<li class><%= link_to "Dec 12, 2013", "#12-12-13" %></li>
+				</ul>
+			</li>
+	</div>
 </div>
 <% end %>
 
@@ -13,6 +25,7 @@
 	</div>
 </div>
 
-<%= render 'static_pages/posts/post121213' %>
-<%= render 'static_pages/posts/post121813' %>
+<%= render 'static_pages/posts/post010114' %>
 <%= render 'static_pages/posts/post122913' %>
+<%= render 'static_pages/posts/post121813' %>
+<%= render 'static_pages/posts/post121213' %>

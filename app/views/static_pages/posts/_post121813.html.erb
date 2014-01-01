@@ -1,5 +1,5 @@
 <div class="blog-post", id="12-18-13">
-	<p class="lead">Testing Javascript with grunt, jasmine, jasmine-jquery, jshint</p>
+	<p class="lead">Testing Javascript with grunt, jasmine, jasmine-jquery, jshint - 12/18/13</p>
 	Here's an issue I confronted recently and overcame. I've been using jasmine to test a bunch of javascript as part of a collaboration with the <%= link_to "Denver Code Club", "http://www.meetup.com/Denver-Code-Club/" %>. See: <%= link_to "learning javascript", about_path %>. When we started getting into jquery, I started having problems. I needed a way to test chunks of html without polluting my test environment. <br><br>
 	I settled on jasmine-jquery as a solution because it works with jasmine and as their site points out, they offer "an API for handling HTML, CSS, and JSON fixtures in your specs". I wrote some tests, an html snippet (or fixture), and launched my tests in a google chrome browser. Then I encountered this:
 <pre>
@@ -30,5 +30,5 @@
 
 	It also has a grunt component, this was super easy. I opened terminal to the folder where I hold the project and typed: 
 <pre>$ npm install jasmine-jquery</pre>
-  Now when I type:<pre>$ grunt test</pre> It loads my fixtures and runs the tests with them. - 12/20/13
+  Now when I type:<pre>$ grunt test</pre> It loads my fixtures and runs the tests with them.
 </div>

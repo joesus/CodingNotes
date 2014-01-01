@@ -96,9 +96,18 @@ li {
   margin-left: 30px;
 }
 
+/* Blog Specific Styling */
+
+.blog-image {
+  display: block;
+  text-align: center;
+  margin: 20px 0px 10px 0px;
+}
+
 .blog-post {
   text-align: left;
   margin-bottom: 20px;
+  margin-top: 60px;
 }
 
 .blog-post > h4 {
@@ -107,17 +116,13 @@ li {
 }
 
 .blog-post > .lead {
-    border-top: 1px solid black;
+  border-top: 1px solid black;
 }
 
 .blog-header > .page-header {
   margin-top: 0;
 }
 
-// .blogpost > .lead {
-//   text-align: left;
-//   border-top: 1px solid black;
-// }
 
 /*
  * Side navigation
