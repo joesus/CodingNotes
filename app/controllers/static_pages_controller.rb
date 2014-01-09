@@ -10,4 +10,7 @@ class StaticPagesController < ApplicationController
 
   def js
   end
+
+  def puzzle
+  end
 end

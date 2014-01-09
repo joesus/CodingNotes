@@ -1,0 +1,95 @@
+<div class="blog-post" id="01-08-14">
+	<p class="lead">The Asset Pipeline - 01/08/14</p>
+<p>	I completed the first jQuery assignment. A sliding puzzle. You can find it under the <%= link_to "jQuery", jquery_path %> section. Or <%= link_to "here", puzzle_path %>. 
+</p>
+
+<p>	I had no problems at all with the assignment until I tried to load it to this site. 
+</p>
+
+<p>Rails utilizes something called the asset pipeline which along with turbolinks allows your site to load very quickly by basically caching everything on your first visit and as you navigate, loading only the portions of the site that change.
+</p>
+	
+<p>	The issue was this: the script that changes the puzzle image into a series of puzzle pieces, is tied to an event handler that looks for 
+<pre>$( document ).ready( function() { };</pre> 
+The trouble here is that with turbolinks, the page basically only loads once. See this <%= link_to "stackoverflow post", "http://stackoverflow.com/questions/18770517/rails-4-how-to-use-document-ready-with-turbo-links", target: "blank" %> for a more in-depth explanation.</p>
+<p>
+I've tried a few ways to get this to work.
+</p>
+
+<p>First I tried the strategy of defining a function called ready, then firing it below the script:
+<pre>
+var ready;
+ready = function() {
+
+//code for my puzzle...
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+</pre>
+	
+This sort of worked. On the initial load, the puzzle displayed properly. On reload the puzzle pieces existed, which means the script loaded properly, only the pieces were invisible with a width and height of 0.</p>
+
+<p>I figured maybe it was firing on load but not on a page change. I made sure I had the <%= link_to "jquery-turbolinks gem", "https://github.com/kossnocorp/jquery.turbolinks", target: "blank" %> installed and tried adding a line under <code>$(document).on('page:load', ready);</code>in the script to listen for page changes.
+<pre>$(document).on('page:change', ready);</pre>
+</p>
+
+<p>It still created a blank puzzle on reload.</p> 
+<p>My theory was that since the script required the image of the puzzle to be there, if there was no image displayed, the script would break an image of nothing into small pieces. Which is not ideal.</p>
+<p>I set out to try and get the image to load faster than the script by removing the script from the turbolinks path.</p>
+<p>First I put everything but the puzzle.js script in a folder for site-wide scripts. My manifest, <code>application.js</code>, now looked like this:
+<pre>
+//= require jquery
+//= require jquery.turbolinks
+//= require jquery_ujs
+//= require jquery.ui.all
+//= require turbolinks
+//= require_tree ./sitewide
+</pre>
+</p>
+
+	My template, <code>application.html.erb</code>:
+<pre>
+<span><</span><span>%</span><span>=</span> yield(:head) %>
+</pre>
+	
+	And my puzzle page, <code>puzzle.html.erb</code>:
+<pre>
+<span><</span>% content_for :head do %>
+<span><</span>%= javascript_include_tag "sliding-puzzle" %>
+<span><</span>% end %>
+</pre>
+
+<p>It didn't work as expected. Sometimes the picture would get there on time, other times I would get a puzzle of blank pieces.</p> 
+
+<p>I thought maybe turbolinks was caching either a copy of the run script, or a copy of the puzzle after the script had run on it. I know, it makes no sense but at this point I was at the spaghetti phase of problem solving - throwing anything I could think of at it and hoping it stuck. I tried turning off turbolinks for the element that holds the puzzle, <code>puzzle.html.erb</code>:
+
+<pre>
+<span><</span><span>div </span><span>id</span><span> ="puzzle"</span><span>class="clearfix"</span><span> data="data-no-turbolink"></span>
+</pre>
+
+As you can imagine, this did absolutely nothing except teach me that I can turn off turbolinks. Which no doubt will help me solve some future problem.
+</p>
+
+<p>I finally spoke to someone who suggested that I trigger the function on the window object. I had trouble with this exact code in the past but with the jquery-turbolinks gem I figured I'd give it another try. 
+</p>
+
+<p>My <code>puzzle.js</code> file now looks like this:
+<pre>
+var ready;
+ready = function() {
+	//bunch of code...
+};
+
+$(window).load(function() {
+    ready();
+});
+</pre>
+	Works like a charm. I changed it back so that turbolinks is active on the <code><span><</span><span>div </span><span>id</span><span> ="puzzle"</span><span>class="clearfix"></span></code></p>
+</div>
+
+
+
+
+

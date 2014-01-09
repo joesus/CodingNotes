@@ -1,0 +1,25 @@
+<% content_for :sidebar do %>
+<div class="col-md-3" id="sidebar"></div>
+<% end %>
+
+<div class="page-header">
+  <h1>Contact Joe</h1>
+</div>
+
+<div class="col-md-4">
+  <h3>
+    <%= mail_to "joesusnick@gmail.com" do %> 
+      <%=image_tag("computer.jpeg", class: "img-circle img-responsive") %>Email
+    <% end %>
+  </h3>
+</div>
+<div class="col-md-4">
+  <h3>
+    <%= link_to image_tag("telephone.jpeg", class: "img-circle img-responsive") + "720 505-9533", '#' %>
+  </h3>
+</div>
+<div class="col-md-4">
+  <h3>
+    <%= link_to image_tag("github.jpeg", class: "img-circle img-responsive") + "Github", "http://github.com/joesus" %>
+  </h3>        
+</div>

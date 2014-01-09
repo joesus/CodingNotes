@@ -5,7 +5,7 @@
 		<ul class="nav bs-sidenav" id="spyOnThis">
 			<li><%= link_to "Ruby Things", "#" %>
 				<ul class="nav">
-					<li class><%= link_to "Getting Started", "#start" %></li>
+					<li class><%= link_to "Getting Started", "#gettingstarted" %></li>
 					<li class><%= link_to "Devise", "#devise" %></li>
 					<li class><%= link_to "RVM Gemsets", "#rvm" %></li>
 				</ul>
@@ -17,7 +17,7 @@
 
 <h1>Ruby Things</h1>
 
-<h2 id="start">Getting Started</h2>
+<h2 id="gettingstarted">Getting Started</h2>
 	<p class="lead">If you've never used Ruby on Rails before you'll want to utilize some of the great resources out there.</p>
 	<ul>
 		<li>Codeacademy is a great place to learn the foundation of the Ruby language. This is essential.</li>
@@ -52,6 +52,7 @@
 
 
 <h2 id="devise">Devise</h2>
+	<p class="lead">Devise is a great tool that...</p>
 	<ul>
 		<li>Here's a walkthrough for setting up user authentication with Devise for a Rails 3 app. It's really helpful.</li>
 <pre>
@@ -74,3 +75,45 @@ $ rails generate devise:views
 <%= link_to "RVM Gemsets", "http://rvm.io/gemsets" %>
 </pre>
 	</ul>
+
+<h2 id="jqueryrails">jQuery with Ruby on Rails</h2>
+	<ul>
+		<li>Make sure you have the right gems. I use:</li>
+<pre>
+gem 'jquery-turbolinks'
+gem 'jquery-rails', '2.2.1'
+gem 'jquery-ui-rails'
+</pre>
+		<li>The order of items in your manifest is extremely important. Open <code>application.js</code> and copy the following.</li>
+<pre>
+//= require jquery
+//= require jquery.turbolinks
+//= require jquery_ujs
+//= require jquery.ui.all
+//= require turbolinks
+//= require_tree .
+</pre>
+		<li>There are a few ways to get your scripts to load with turbolinks. As far as I've seen, none of them work perfectly but you can largely manage to do what you need. <%= link_to "stackoverflow post", "http://stackoverflow.com/questions/18770517/rails-4-how-to-use-document-ready-with-turbo-links", target: "blank" %></li>
+		<li>I prefer the strategy of defining a function called ready, then firing it below the script:</li>
+<pre>
+var ready;
+ready = function() {
+	bunch of code...
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+</pre>
+		<li>This isn't a perfect solution (it doesn't handle page refreshes very well, something with the caching) so as soon as I find a better method I'll post it here. 
+		</li>
+	</ul>
+
+
+
+
+
+
+
+
+
+

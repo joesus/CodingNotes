@@ -17,16 +17,12 @@ $boolFalse: #cb7832;
 
 
 /* Over-ride for bootstrap link styles */
-
 a {
-	color: $tanText;
-	&:visited {
-		text-decoration: none;
-	}
+	color: $tanText !important;
+  text-decoration: none !important;
 }
 
 /* Over-ride for pre element */
-
 pre {
   text-align: left;
   margin-bottom: 40px;
@@ -36,15 +32,14 @@ pre {
 }
 
 /* Sets Background image */
-
 html body { 
   background: url('bg.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-//Adjusts to play nice with header
-  padding-top: 50px; 
+  //Adjusts to play nice with header
+  padding-top: 50px;
 	text-align: center;
 	position: relative;
 	}
@@ -55,23 +50,12 @@ html body {
 }
 
 /* Additional Styling for Header */
-
 header {
 	background-color: $lightTan;
 	color: $tanText;
 }
 
-/* Sets sidebar navigation to full-screen on mobile */
-
-.col-md-3 {
-	&#sidebar {
-		padding-left: 0px;
-		padding-right: 0px;
-	}
-}
-
 /* Main Content */
-
 #center-notes {
 	margin-top: 15px;
 	padding: 15px; 
@@ -97,7 +81,6 @@ li {
 }
 
 /* Blog Specific Styling */
-
 .blog-image {
   display: block;
   text-align: center;
@@ -123,6 +106,47 @@ li {
   margin-top: 0;
 }
 
+/* Puzzle Project Styling */
+#puzzle { 
+  width:550px;
+  padding:5px;
+  margin:auto;
+  margin-top: 15px;
+  border:1px solid #aaa;
+  border-radius:5px;
+  background-color:#eee;
+}
+
+#puzzle figure { 
+  width:510px;
+  height:676px;
+  margin-left: 13px;
+  margin-top: 20px;
+  border:1px solid #aaa;
+  position:relative;
+  float:left;
+  background-color:#fff;
+}
+
+#ui { 
+  width:200px;
+  padding:10px 0 0 10px;
+  float:left;
+}
+
+#ui button { 
+  margin-bottom:2em;
+}
+
+#ui p {
+  font-size:1.7em;
+}
+
+#start { 
+  width:204px;
+  height:50px;
+  font-size:1.75em;
+}
 
 /*
  * Side navigation
@@ -207,13 +231,6 @@ li {
     margin-bottom: 0;
   }
 }
-// @media screen and (min-width: 1200px) {
-//   Widen the fixed sidebar again
-//   .bs-sidebar.affix-bottom,
-//   .bs-sidebar.affix {
-//     width: 263px;
-//   }
-// }
 
 /* Janky fix for preventing navbar from overlapping */
 h1, h2, h3, h4, h5 [id] {

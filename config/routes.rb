@@ -8,6 +8,9 @@ CodingNotes::Application.routes.draw do
   match '/ruby',   to: "static_pages#ruby",     via: 'get'
   match '/js',     to: "static_pages#js",       via: 'get'
   match '/heroku', to: "static_pages#heroku",   via: 'get'
+  match '/contact', to: "static_pages#contact",
+    via: 'get'
+  match '/puzzle', to: "static_pages#sliding-puzzle",via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
