@@ -104,8 +104,20 @@ ready = function() {
 $(document).ready(ready);
 $(document).on('page:load', ready);
 </pre>
-		<li>This isn't a perfect solution (it doesn't handle page refreshes very well, something with the caching) so as soon as I find a better method I'll post it here. 
+		<li>This isn't a perfect solution (it doesn't handle images well. Specifically I had a situation where a script required an image to load before it could run successfully.) so as soon as I find a better method I'll post it here. 
 		</li>
+		<li>Update! Found a better Method!</li>
+<pre>
+var ready;
+ready = function() {
+	bunch of code...
+};
+
+$(window).load(function() {
+    ready();
+});
+</pre>
+		<li>This works way better. See my <%= link_to "post", root_path(anchor: "12-18-13") %> about it.</li>
 	</ul>
 
 

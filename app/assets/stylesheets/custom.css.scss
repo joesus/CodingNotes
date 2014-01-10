@@ -85,24 +85,24 @@ li {
   display: block;
   text-align: center;
   margin: 20px 0px 10px 0px;
+
 }
 
 .blog-post {
   text-align: left;
   margin-bottom: 20px;
   margin-top: 60px;
+  h4 {
+    padding-top: 5px;
+    margin-top: 5px;  
+  }
+  .lead {
+    border-top: 1px solid black;    
+  }
 }
 
-.blog-post > h4 {
-  padding-top: 5px;
-  margin-top: 5px;
-}
 
-.blog-post > .lead {
-  border-top: 1px solid black;
-}
-
-.blog-header > .page-header {
+.page-header {
   margin-top: 0;
 }
 
@@ -115,31 +115,28 @@ li {
   border:1px solid #aaa;
   border-radius:5px;
   background-color:#eee;
-}
-
-#puzzle figure { 
-  width:510px;
-  height:676px;
-  margin-left: 13px;
-  margin-top: 20px;
-  border:1px solid #aaa;
-  position:relative;
-  float:left;
-  background-color:#fff;
+  figure {
+    width:510px;
+    height:676px;
+    margin-left: 13px;
+    margin-top: 20px;
+    border:1px solid #aaa;
+    position:relative;
+    float:left;
+    background-color:#fff;
+  }
 }
 
 #ui { 
   width:200px;
   padding:10px 0 0 10px;
   float:left;
-}
-
-#ui button { 
-  margin-bottom:2em;
-}
-
-#ui p {
-  font-size:1.7em;
+  button {
+    margin-bottom:2em;  
+  }
+  p {
+    font-size: 1.7em;
+  }
 }
 
 #start { 
