@@ -31,6 +31,11 @@ pre {
   word-wrap: normal;
 }
 
+/* Over-ride for page-header class */
+.page-header {
+  margin-top: 0;
+}
+
 /* Sets Background image */
 html body { 
   background: url('bg.jpg') no-repeat center center fixed; 
@@ -91,7 +96,7 @@ li {
 .blog-post {
   text-align: left;
   margin-bottom: 20px;
-  margin-top: 60px;
+  padding-top: 60px;
   h4 {
     padding-top: 5px;
     margin-top: 5px;  
@@ -99,11 +104,6 @@ li {
   .lead {
     border-top: 1px solid black;    
   }
-}
-
-
-.page-header {
-  margin-top: 0;
 }
 
 /* Puzzle Project Styling */

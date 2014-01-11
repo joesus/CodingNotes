@@ -1618,6 +1618,10 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
     this.refresh()
     this.process()
+
+    //added a method for smooth scroll
+    this.scroll()
+
   }
 
   ScrollSpy.DEFAULTS = {
@@ -1693,6 +1697,13 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
     active.trigger('activate')
   }
+
+  //ADDED SCROLL METHOD method to ScrollSpy Prototype
+  ScrollSpy.prototype.scroll = function (target) {
+    $('#spyOnThis').bind('click', 'ul li a', function(event) {
+        $.scrollTo(event.target.hash, 250);
+    });
+  };
 
 
   // SCROLLSPY PLUGIN DEFINITION
