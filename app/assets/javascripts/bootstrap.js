@@ -1698,7 +1698,9 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     active.trigger('activate')
   }
 
-  //ADDED SCROLL METHOD method to ScrollSpy Prototype
+  //SCROLL ANIMATION
+  //================
+
   ScrollSpy.prototype.scroll = function (target) {
     $('#spyOnThis').bind('click', 'ul li a', function(event) {
         $.scrollTo(event.target.hash, 250);

@@ -11,6 +11,7 @@ CodingNotes::Application.routes.draw do
   match '/contact', to: "static_pages#contact",
     via: 'get'
   match '/puzzle', to: "static_pages#sliding-puzzle",via: 'get'
+  match '/maps',   to: "static_pages#maps", via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
