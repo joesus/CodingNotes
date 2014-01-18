@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+
   def home
   end
 
@@ -13,4 +14,12 @@ class StaticPagesController < ApplicationController
 
   def puzzle
   end
+
+  def jquery
+  end
+
+  def maps
+    render layout: 'layouts/jqueryprojects'
+  end
+  
 end
