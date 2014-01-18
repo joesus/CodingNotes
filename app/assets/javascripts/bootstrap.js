@@ -1703,6 +1703,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
   ScrollSpy.prototype.scroll = function (target) {
     $('#spyOnThis').bind('click', 'ul li a', function(event) {
+        event.preventDefault;
         $.scrollTo(event.target.hash, 250);
     });
   };
