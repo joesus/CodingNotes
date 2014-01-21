@@ -1,0 +1,56 @@
+<div class="blog-post" id="01-21-14">
+	<p class="lead">Made my first snippet - 01/21/14</p>
+	<p>So I was playing around with SQL Server Management Studio and I was getting annoyed that there weren't basic snippets for surrounding text with quotation marks, brackets, etc...</p>
+	<p>I decided to make my own snipped to solve the problem.</p>
+<ul>	
+	<p>First thing I did was open Visual Studio 12 and create a new file.</p>
+	<pre><%= link_to image_tag("snippets1.png"), class: "img-responsive" %></pre>
+	<p>Which I specified as an XML file</p>
+	<pre><%= link_to image_tag("snippets2.png"), class: "img-responsive" %></pre>
+	<p>
+	 I pulled a snippets template off the MS help pages, and changed a few lines of code (marked in red).</p>
+<pre><span><</span>?xml version="1.0" encoding="utf-8" ?>
+<span><</span>CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <span><</span>_locDefinition xmlns="urn:locstudio">
+    <span><</span>_locDefault _loc="locNone" />
+    <span><</span>_locTag _loc="locData">Title</_locTag>
+    <span><</span>_locTag _loc="locData">Description</_locTag>
+    <span><</span>_locTag _loc="locData">Author</_locTag>
+    <span><</span>_locTag _loc="locData">ToolTip</_locTag>
+    <span><</span>_locTag _loc="locData">Default</_locTag>
+  <span><</span>/_locDefinition>
+  <span><</span>CodeSnippet Format="1.0.0">
+    <span><</span>Header>
+      <span><</span>Title>TryCatch<span><</span>/Title>
+      <span><</span>Shortcut><span><</span>/Shortcut>
+      <span><</span>Description><span id="markedText">Snippet for single quotes</span><span><</span>/Description>
+      <span><</span>Author><span id="markedText">Joe Susnick</span><span><</span>/Author>
+      <span><</span>SnippetTypes>
+        <span><</span>SnippetType>SurroundsWith<span><</span>/SnippetType>
+      <span><</span>/SnippetTypes>
+    <span><</span>/Header>
+    <span><</span>Snippet>
+      <span><</span>Declarations>
+        <span><</span>Literal>
+          <span><</span>ID><span id="markedText">SingleQuotes</span><span><</span>/ID>
+          <span><</span>ToolTip><span id="markedText">Code to handle single quotes</span><span><</span>/ToolTip>
+          <span><</span>Default><span id="markedText">SingleQuotes</span><span><</span>/Default>
+        <span><</span>/Literal>
+      <span><</span>/Declarations>
+      <span><</span>Code Language="SQL">
+        <span id="markedText"><</span><span id="markedText">![CDATA['$selected$'$end$]]></span>
+      <span><</span>/Code>
+    <span><</span>/Snippet>
+  <span><</span>/CodeSnippet>
+<span><</span>/CodeSnippets>
+</pre>
+	<li>Then I opened up SQL Server Management studio and selected Code Snippets Manager from the tools menu:</li>
+<pre><%= link_to image_tag("snippets3.png"), class: "img-responsive" %></pre>
+	<li>Clicked 'import':</li>
+<pre><%= link_to image_tag("snippets4.png"), class: "img-responsive" %></pre>
+	<li>Navigated to where I had saved the snippet:</li>
+<pre><%= link_to image_tag("snippets5.png"), class: "img-responsive" %></pre> 
+	<li>Added it to the menus where I expected to use it.</li>
+<pre><%= link_to image_tag("snippets6.png"), class: "img-responsive" %></pre>
+</ul>
+<p>This was all it took to make a snippet and it's super easy to change them.</p>
