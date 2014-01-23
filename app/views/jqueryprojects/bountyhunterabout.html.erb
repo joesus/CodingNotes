@@ -8,13 +8,15 @@
 <% end %>
 
 
-<% content_for :title, "Bounty Hunter jQuery Mobile App" %>
+<% content_for :title, "Bounty Hunter - About" %>
 
 <body> 
     <div data-role="page" id="welcome">
 
 	    <div data-role="header">
-            <a href="bounty-hunter.html" data-icon="home" data-shadow="false" data-iconpos="notext" data-transition="slide" data-direction="reverse" title="Home"></a>
+            <%= link_to "Home", bounty_path, :data => { icon: "home", shadow: "false", iconpos: "notext", transition: "slide", direction: "reverse" }, title: "Home" %>
+<!--             data: { icon: "home", shadow: "false", iconpos: "notext", transition: "slide" }, bounty_path %> -->
+<!--             <a href="/" data-icon="home" data-shadow="false" data-iconpos="notext" data-transition="slide" data-direction="reverse" title="Home"></a> -->
 		    <h1>About Bounty Hunter</h1>
 	    </div>
 

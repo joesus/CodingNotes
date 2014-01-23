@@ -31,7 +31,7 @@
         <!-- data-roles take advantage of styling built into jquery-mobile.js and .css -->
         <div data-role="footer" data-position="fixed" data-id="footer">
             <small>&copy; 2012 Some Company Inc.</small>
-            <a href="bounty-hunter-about.html" data-icon="info" data-role="button" data-transition="slide">About</a>
+            <%= link_to "About", bounty_about_path, data: { icon: "info", role: "button", transition: "slide"} %>
         </div>
     </div>
 </body>

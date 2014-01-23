@@ -1,3 +1,4 @@
+<% content_for :title, "jQuery Projects" %>
 <% content_for :sidebar do %>
 <div class="col-md-3" id="sidebar">
 </div>
@@ -7,7 +8,7 @@
 	<h1>jQuery
 	<br>
 		<small>
-			Getting jQuery to work with rails was kind of a chore. It required a little bit of magic. I outlined the exact process in the <%= link_to "ruby", ruby_path %> section. Here are some projects I've worked on that use jQuery.
+			Getting jQuery to play nice with rails requires a little bit of tinkering. I outlined the exact process in the <%= link_to "ruby", ruby_path %> section. Here are some projects I've worked on that use jQuery.
 		</small>
 	</h1>
 </div>
@@ -16,5 +17,6 @@
 		<li><%= link_to "Sliding Puzzle Project", puzzle_path %>
 		</li>
 		<li><%= link_to "Google Maps Project", maps_path, target: 'blank' %></li>
+		<li><%= link_to "Bounty-Hunter jQuery-Mobile App", bounty_path, target: 'blank' %></li>
 	</h2>
 </ul>
