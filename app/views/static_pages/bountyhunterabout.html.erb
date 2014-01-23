@@ -1,0 +1,32 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "common.css", "bounty-hunter.css" %>
+    <%= javascript_include_tag "bounty-hunter" %>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+    <script src="//borismoore.github.com/jsrender/jsrender.js"></script>
+<% end %>
+
+
+<% content_for :title, "Bounty Hunter jQuery Mobile App" %>
+
+<body> 
+    <div data-role="page" id="welcome">
+
+	    <div data-role="header">
+            <a href="bounty-hunter.html" data-icon="home" data-shadow="false" data-iconpos="notext" data-transition="slide" data-direction="reverse" title="Home"></a>
+		    <h1>About Bounty Hunter</h1>
+	    </div>
+
+	    <div data-role="content">
+            <p>
+                Bounty Hunter is an example app built for learning the methods and principles of jQuery-mobile.
+            </p>
+	    </div>
+
+        <div data-role="footer" data-position="fixed" data-id="footer">
+            <small>&copy; 2012 Some Company Inc.</small>
+            <a class="ui-disabled" href ="#" data-icon="info" data-role="button">About</a>
+        </div>
+    </div>
+</body>
