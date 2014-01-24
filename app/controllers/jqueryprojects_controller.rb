@@ -8,5 +8,8 @@ class JqueryprojectsController < ApplicationController
 
 	def maps
 	end
+
+	def bountyhunterlist
+	end
 	
 end

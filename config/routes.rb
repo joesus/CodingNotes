@@ -14,6 +14,9 @@ CodingNotes::Application.routes.draw do
   match '/maps',   to: "jqueryprojects#maps",     via: 'get'
   match '/bounty', to: "jqueryprojects#bounty",   via: 'get'
   match '/bounty/about', to: "jqueryprojects#bountyhunterabout", via: 'get'
+  match '/bountyhunterlist', to: "jqueryprojects#bountyhunterlist", via: 'get'
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
