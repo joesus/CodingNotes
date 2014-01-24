@@ -1,0 +1,131 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "common.css", "bounty-hunter.css" %>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+    <script src="//borismoore.github.com/jsrender/jsrender.js"></script>
+    <%= javascript_include_tag "bounty-hunter" %>
+<% end %>
+
+
+<% content_for :title, "Bounty Hunter - List" %>
+
+<body>
+	<div data-role="page" id="list">
+
+		<div data-role="header">
+            <%= link_to "Home", bounty_path, :data => { icon: "home", shadow: "false", iconpos: "notext", transition: "slide", direction: "reverse" }, title: "Home" %>
+		    <h1>Active Bounties</h1>
+	  </div>
+
+    <div data-role="content">
+    	<div class="ui-bar ui-bar-c" id="ui-bar">
+    		<%= link_to "Prev", "#", :data => { role: "button", icon: "back", inline: "true", mini: "true" }, class: "ui-disabled" %>
+    		<h2>Page <span class="num"></span> of <span class="of"></span></h2>
+    		<%= link_to "Next", "#", :data => { role: "button", icon: "forward", inconpos: "right", inline: "true", mini: "true"}, class: "ui-disabled" %>
+    	</div>
+
+    	<!-- container for listview widget results -->
+    	<div id="results"></div>
+
+    	<div class="ui-bar ui-bar-c footer-bar">
+    		<%= link_to "Prev", "#", :data => { role: "button", icon: "back", inline: "true", mini: "true" }, class: "ui-disabled" %>
+    		<h2>Page <span class="num"></span> of <span class="of"></span></h2>
+    		<%= link_to "Next", "#", :data => { role: "button", icon: "forward", inconpos: "right", inline: "true", mini: "true"}, class: "ui-disabled" %>
+    	</div>
+		</div>
+
+  	<div data-role="footer" data-position="fixed" data-id="footer">
+  		<small>&copy; 2012 Some Company Inc.</small>
+  		<a class="ui-disabled" href="#" data-icon="info" data-role="button">About</a>
+  	</div>
+
+  	<!-- create the script in a non-standard type to stop the browser from parsing the script, this script runs then appends to the #results container above -->
+  	<script id="listTemplate" type="text/x-jquery-tmpl">
+    	<ul data-role="listview">
+    		{{for items}}
+    			<li data-shadow="false" data-icon="arrow-r" data-iconpos="right">
+	    			<a href="#" id="item-{{:#index}}">
+	    				<div class="bounty">
+	    				<!-- //the tilde tells the template to use a helper method of that name -->
+	    					<span>+{{:bounty_amount}}</span>
+	    					<span class="expires">Expires on: <span class="value">{{:~CreateDate(bounty_closes_date)}}</span></span>
+	    				</div>
+	    				<h1 class="title">{{:title}}</h1>
+	    				<div class="meta">
+	    					<span>Answers: <span class="value">
+	    						{{:answer_count}}</span></span>
+	    					<span class="activity">Last activity on: <span class="value">{{:~CreateDate(last_activity_date)}}</span></span>
+	    				</div>
+	    			</a>
+    			</li>
+    		{{/for}}
+    	</ul>
+  	</script>
+
+  	<script id="itemTemplate" type="text/x-jquery-tmpl">
+  		<div data-role="page" id="{{:pageid}}" class="item-view">
+  			<div data-role="header" data-position="fixed">
+					<%= link_to "Back", bountyhunterlist_path, data: { shadow: "false", icon: "arrow-1", transition: "slide", direction: "reverse", title: "Back to list view" } %>
+
+					<h1>{{:title}}</h1>
+
+  			</div>
+
+		  	<div data-role="content">
+  				<header class="ui-helper-clearfix">
+  					<div class="bounty">
+		  				<span>+{{:bounty_amount}}</span>
+		  				<span class="expires">Expires on: <span class="value">{{:~CreateDate(bounty_closes_date)}}</span></span>
+		  			</div>
+  			
+		  			<div class="meta">
+		  				<span>Asked on: <span class="value">{{:~CreateDate(creation_date)}}</span></span>
+		  				<span>Answers: <span class="value">{{:answer_count}}</span></span>
+		  				<span class="activity">Last activity on: <span class="value">{{:~CreateDate(last_activity_date)}}</span></span>
+		  			</div>
+  			
+		  			<h1 class="title">{{:title}}</h1>
+  			
+		  			<!-- //iterates through a list of tags, since the tags array is a flat string instead of an object, we can't access the data by key, instead we can use the value #data which returns the current item in the array -->
+		  			<ul class="tags">
+		  				{{for tags}}
+		  					<li>{{:#data}}</li>
+		  				{{/for}}
+		  			</ul>
+
+		  			<div class="owner">
+							<a href="{{:owner.link}}" title="{{:owner.display_name}}">
+		        		<img src="{{:owner.profile_image}}" alt="{{:owner.display_name}}" />
+		      			<div>
+		          		<h3>{{:owner.display_name}}</h3>
+		          		<span>
+		              	{{:owner.accept_rate}}% accept rate
+		          		</span>
+								</div> 
+							</a>
+						</div>
+    	
+		    		<a data-role="button" data-icon="gear" data-inline="true" href="{{:link}}" title="Answer on Stack Overflow">Answer on Stack Overflow</a>
+	  		</header>
+
+	  		<div class="question">{{:body}}</div>
+  			<h2>Answers</h2>
+  			<ul class="answer">
+	  			{{for answers}}
+  					<li data-shadow="false">
+  						<h3>Answered by: <span class="answer-name">{{:owner.display_name}}</span>, on <span class="answer-date">{{:~CreateDate(creation_date)}}</span></h3>
+	  					<div>{{:body}}</div>
+  					</li>
+	  			{{/for}}
+	  		</ul>
+  		</div>
+
+	  	<div data-role="footer" data-position="fixed" data-id="footer">
+	  		<small>&copy; 2012 Some Company Inc.</small>
+  	    <%= link_to "About", bounty_about_path, data: { icon: "info", role: "button", transition: "slide"} %>
+  		</div>
+  	</div>
+	</script>
+	</div>
+</body>		

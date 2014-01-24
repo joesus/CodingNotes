@@ -17,9 +17,4 @@ class StaticPagesController < ApplicationController
 
   def jquery
   end
-
-  def maps
-    render layout: 'layouts/jqueryprojects'
-  end
-  
 end

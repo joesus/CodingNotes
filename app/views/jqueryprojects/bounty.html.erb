@@ -1,0 +1,37 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "common.css", "bounty-hunter.css" %>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+    <script src="//borismoore.github.com/jsrender/jsrender.js"></script>
+    <%= javascript_include_tag "bounty-hunter" %>
+<% end %>
+
+
+<% content_for :title, "Bounty Hunter jQuery Mobile App" %>
+
+<body> 
+    <div data-role="page" id="welcome">
+
+	    <div data-role="header">
+		    <h1>Bounty Hunter</h1>
+	    </div>
+
+	    <div data-role="content">
+            <p>Enter tag(s) to search for bounties on. Separate tags with a semi-colon, or leave blank to get all bounties.</p>
+            <div class="filter-form">
+                <!-- ui-hidden-accessible class allows assistive technologies to use the label without cluttering the view -->
+                <label for="tags" class="ui-hidden-accessible">Search by tag(s):</label>
+                <input id="tags" placeholder="Tag(s)" />
+                <button id="search" data-inline="true" data-icon="search">Search</button>
+            </div>
+	    </div>
+        <%= image_tag("boba.png", alt: "Bounty Hunter") %>
+
+        <!-- data-roles take advantage of styling built into jquery-mobile.js and .css -->
+        <div data-role="footer" data-position="fixed" data-id="footer">
+            <small>&copy; 2012 Some Company Inc.</small>
+            <%= link_to "About", bounty_about_path, data: { icon: "info", role: "button", transition: "slide"} %>
+        </div>
+    </div>
+</body>

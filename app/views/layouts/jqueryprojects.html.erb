@@ -8,8 +8,7 @@
   <%= render 'layouts/shim' %>   
   <%= render 'layouts/device_specific' %>
   <%= yield :head %>
-    <title>CodingNotes</title>
-	
+  <title><%= yield :title %></title>
 </head>
 
 <body data-spy="scroll" data-target="#spyOnThis">
