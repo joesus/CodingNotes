@@ -15,14 +15,14 @@
 </head>
 <body data-spy="scroll" data-target="#spyOnThis">
   <%= render 'layouts/header' %>
-  <div class="container">
+  <aside class="container">
     <div class="row">
       <%= yield :sidebar %>
       <div class="col-md-6" id="center-notes">
       <%= yield %>		
       </div>
     </div>
-  </div>
+  </aside>
 
   <%= render 'layouts/footer' %>
 </body>

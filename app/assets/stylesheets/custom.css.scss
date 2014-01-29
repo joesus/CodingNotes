@@ -2,10 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+/////////////////////////////////
 /* Imports, Mixins, Variables */
+///////////////////////////////
 @import "bootstrap";
 @import "bootstrap/theme";
+
 
 $lightTan: #e8e5e4;
 $tanText: #615f5b;
@@ -15,14 +17,20 @@ $activeText: #5e5e5e;
 $boolTrue: #1c7dd0;
 $boolFalse: #cb7832;
 
-
+//////////////////////////////////////////
 /* Over-ride for bootstrap link styles */
+////////////////////////////////////////
 a {
 	color: $tanText !important;
   text-decoration: none !important;
+  &:focus, :hover {
+    outline: 5px auto $tanText;
+  }
 }
 
+////////////////////////////////
 /* Over-ride for pre element */
+//////////////////////////////
 pre {
   text-align: left;
   margin-bottom: 40px;
@@ -31,12 +39,16 @@ pre {
   word-wrap: normal;
 }
 
+//////////////////////////////////////
 /* Over-ride for page-header class */
+////////////////////////////////////
 .page-header {
   margin-top: 0;
 }
 
+////////////////////////////
 /* Sets Background image */
+//////////////////////////
 html body { 
   background: url('bg.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -54,13 +66,17 @@ html body {
 		}
 }
 
-/* Additional Styling for Header */
+/////////////////////////////
+/* Header Specific Styling*/
+///////////////////////////
 header {
 	background-color: $lightTan;
 	color: $tanText;
 }
 
+///////////////////
 /* Main Content */
+/////////////////
 #center-notes {
 	margin-top: 15px;
 	padding: 15px; 
@@ -98,8 +114,9 @@ li {
   text-align: left;
   color: $tanText; 
 }
-
+////////////////////////////
 /* Blog Specific Styling */
+//////////////////////////
 .blog-image {
   display: block;
   text-align: center;
@@ -120,7 +137,33 @@ li {
   }
 }
 
+////////////////////////////////////
+/* Contact Form Specific Styling */
+//////////////////////////////////
+.form-control {
+  &:focus {
+    outline: 5px auto $activeText;
+  }
+}
+
+.btn:focus {
+  outline: 5px auto $activeText;
+}
+
+button {
+  &#sendtojoe {
+    transition: background-color 0.5s ease-in-out;
+    &:hover {
+      background-color: blue;
+    }
+  }
+}
+
+
+
+/////////////////////////////
 /* Puzzle Project Styling */
+///////////////////////////
 #puzzle { 
   width:550px;
   padding:5px;
@@ -244,7 +287,16 @@ li {
   }
 }
 
+/* Won't display side nav in tablet or mobile view */
+@media screen and (max-width: 992px) {
+  #sidebar {
+    display: none;
+  }
+}
+
+///////////////////////////////////////////////////////
 /* Janky fix for preventing navbar from overlapping */
+/////////////////////////////////////////////////////
 .page-header > h1 > h2 > h3 > h4 > h5 [id] {
   padding-top: 80px;
   margin-top: -45px;
