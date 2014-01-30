@@ -3,43 +3,45 @@
 <div class="col-md-3" id="sidebar"></div>
 <% end %>
 
+<!--///
+
+To Do: 
+Make button submit disabled until form fields are filled
+Make computer.jpg icon-sized
+add placeholders to form
+
+////-->
+
 <div class="page-header">
-  <h1>Contact Joe</h1>
+	<h1>
+		<span class="glyphicon glyphicon-envelope"></span>  Contact Joe
+	</h1>
 </div>
 
-<div class="col-md-4">
-<%= image_tag("computer.jpeg", class: "img-circle img-responsive") %>
-</div>
-
-
-<%= form_for(@message, url: contact_path) do |form| %>
+<%= form_for(@message, url: contact_path, html: {class: 'form'}) do |form| %>
 
 	<%= render 'contact/error_messages', object: form.object %>
 
-  <fieldset class="fields">
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
+		<div class="form-group">
+      <%= form.label(:name, class: "pull-left") %>
+      <%= form.text_field(:name, class: "form-control") %>
     </div>
     
-    <div class="field">
-      <%= form.label :email %>
-      <%= form.text_field :email %>
+    <div class="form-group">
+      <%= form.label(:email, class: "pull-left") %>
+      <%= form.text_field(:email, class: "form-control") %>
     </div>
-    <div class="field">
-      <%= form.label :subject %>
-      <%= form.text_field :subject %>
+    <div class="form-group">
+      <%= form.label(:subject, class: "pull-left") %>
+      <%= form.text_field(:subject, class: "form-control") %>
     </div>
     
-    <div class="field">
-      <%= form.label :body %>
-      <%= form.text_area :body %>
+		<div class="form-group">
+      <%= form.label(:body, class: "pull-left") %>
+      <%= form.text_area(:body, class: "form-control") %>
     </div>
-  </fieldset>
-  
-  <fieldset class="actions">
+
     <%= form.submit "Send" %>
-  </fieldset>
 <% end %>
 
 <div class="col-md-4">
@@ -52,3 +54,5 @@
     <%= link_to image_tag("github.jpeg", class: "img-circle img-responsive") + "Github", "http://github.com/joesus" %>
   </h3>        
 </div>
+
+<h3>Please pardon our appearance as we update our look.</h3>
