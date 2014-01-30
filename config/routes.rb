@@ -1,6 +1,5 @@
 CodingNotes::Application.routes.draw do
 
-
   root 'static_pages#home'
   match '/about',  to: "static_pages#about",    via: 'get'
   match '/index',  to: "static_pages#index",    via: 'get'
@@ -8,13 +7,15 @@ CodingNotes::Application.routes.draw do
   match '/ruby',   to: "static_pages#ruby",     via: 'get'
   match '/js',     to: "static_pages#js",       via: 'get'
   match '/heroku', to: "static_pages#heroku",   via: 'get'
-  match '/contact', to: "static_pages#contact",
-    via: 'get'
+  match '/contact', to: "contact#new",          via: 'get'
+  match '/contact', to: "contact#create",       via: 'post'
   match '/puzzle', to: "static_pages#sliding-puzzle",via: 'get'
-  match '/maps',   to: "jqueryprojects#maps",     via: 'get'
-  match '/bounty', to: "jqueryprojects#bounty",   via: 'get'
+  match '/email',  to: "static_pages#email",    via: 'get'
+  match '/maps',   to: "jqueryprojects#maps",   via: 'get'
+  match '/bounty', to: "jqueryprojects#bounty", via: 'get'
   match '/bounty/about', to: "jqueryprojects#bountyhunterabout", via: 'get'
   match '/bountyhunterlist', to: "jqueryprojects#bountyhunterlist", via: 'get'
+
 
   
   # The priority is based upon order of creation: first created -> highest priority.

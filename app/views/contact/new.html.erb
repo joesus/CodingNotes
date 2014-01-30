@@ -1,0 +1,54 @@
+<% content_for :title, "Contact" %>
+<% content_for :sidebar do %>
+<div class="col-md-3" id="sidebar"></div>
+<% end %>
+
+<div class="page-header">
+  <h1>Contact Joe</h1>
+</div>
+
+<div class="col-md-4">
+<%= image_tag("computer.jpeg", class: "img-circle img-responsive") %>
+</div>
+
+
+<%= form_for(@message, url: contact_path) do |form| %>
+
+	<%= render 'contact/error_messages', object: form.object %>
+
+  <fieldset class="fields">
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email %>
+    </div>
+    <div class="field">
+      <%= form.label :subject %>
+      <%= form.text_field :subject %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :body %>
+      <%= form.text_area :body %>
+    </div>
+  </fieldset>
+  
+  <fieldset class="actions">
+    <%= form.submit "Send" %>
+  </fieldset>
+<% end %>
+
+<div class="col-md-4">
+  <h3>
+    <%= link_to image_tag("telephone.jpeg", class: "img-circle img-responsive") + "720 505-9533", '#' %>
+  </h3>
+</div>
+<div class="col-md-4">
+  <h3>
+    <%= link_to image_tag("github.jpeg", class: "img-circle img-responsive") + "Github", "http://github.com/joesus" %>
+  </h3>        
+</div>
