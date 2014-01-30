@@ -11,10 +11,9 @@ class ContactController < ApplicationController
 
 	  if @message.save
 	  	ContactMailer.new_message(@message).deliver
-	  	flash[:success] = "Message was sent"
+	  	flash[:success] = "Message sent! We'll be in touch shortly!"
 	  	redirect_to contact_path
 	  else
-	  	flash.now[:alert] = 'Please fill all fields'
 	  	render :new
 	  end
 	end

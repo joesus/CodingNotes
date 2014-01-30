@@ -24,7 +24,7 @@ a {
 	color: $tanText !important;
   text-decoration: none !important;
   &:focus, :hover {
-    outline: 5px auto $tanText;
+    outline: 3px auto $tanText;
   }
 }
 
@@ -46,6 +46,11 @@ pre {
   margin-top: 0;
 }
 
+.page-header > h1 > h2 > h3 > h4 > h5 [id] {
+  padding-top: 80px;
+  margin-top: -45px;
+}
+
 ////////////////////////////
 /* Sets Background image */
 //////////////////////////
@@ -64,14 +69,6 @@ html body {
 		body {
 			padding-top: 30;
 		}
-}
-
-/////////////////////////////
-/* Header Specific Styling*/
-///////////////////////////
-header {
-	background-color: $lightTan;
-	color: $tanText;
 }
 
 ///////////////////
@@ -142,24 +139,17 @@ li {
 //////////////////////////////////
 .form-control {
   &:focus {
-    outline: 5px auto $activeText;
+    outline: 3px auto $activeText;
   }
 }
 
 .btn:focus {
-  outline: 5px auto $activeText;
+  outline: 3px auto $activeText;
 }
 
-button {
-  &#sendtojoe {
-    transition: background-color 0.5s ease-in-out;
-    &:hover {
-      background-color: blue;
-    }
-  }
+.btn[disabled] {
+  opacity: 0.65;
 }
-
-
 
 /////////////////////////////
 /* Puzzle Project Styling */
@@ -292,12 +282,4 @@ button {
   #sidebar {
     display: none;
   }
-}
-
-///////////////////////////////////////////////////////
-/* Janky fix for preventing navbar from overlapping */
-/////////////////////////////////////////////////////
-.page-header > h1 > h2 > h3 > h4 > h5 [id] {
-  padding-top: 80px;
-  margin-top: -45px;
 }
