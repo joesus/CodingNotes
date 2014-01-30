@@ -46,16 +46,7 @@ add placeholders to form
 <br>
 
 <div class="row"></div>
-
-<div class="row">
-	<div class="col-xs-6 col-md-4 col-md-offset-2">
-	  <h3>
-	    <%= link_to image_tag("telephone.jpeg", class: "img-circle img-responsive") + "720 505-9533", 'tel://720.505.9533' %>
-	  </h3>
-	</div>
-	<div class="col-xs-6 col-md-4">
-	  <h3>
-	    <%= link_to image_tag("github.jpeg", class: "img-circle img-responsive") + "Github", "http://github.com/joesus" %>
-	  </h3>        
-	</div>
-</div>
+<hr id="icons" />
+<p><%= link_to '<i class="fa fa-linkedin-square fa-5x"></i>'.html_safe, "http://www.linkedin.com/pub/joe-susnick/40/279/a4/", target: 'blank' %> <%= link_to '<i class="fa fa-github-square fa-5x"></i>'.html_safe, "http://github.com/joesus", target: 'blank' %>
+	    <%= link_to '<i class="fa fa-phone-square fa-5x"></i>'.html_safe, 'tel://720.505.9533' %>
+</p>

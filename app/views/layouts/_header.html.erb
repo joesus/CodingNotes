@@ -18,11 +18,12 @@
         <li><%= link_to "Heroku Shtuff", heroku_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class=""><%= link_to "Contact", contact_path %></li>
+        <li class=""><%= link_to '<i class="fa fa-envelope"></i> Contact'.html_safe, contact_path %>
+        </li>
+        <li class="">
+          <%= link_to '<i class="fa fa-cloud-download"></i> Resume'.html_safe, "https://www.dropbox.com/s/b03hkk7ygsctxwz/Joe%20Susnick%20Resume%202014.doc/?dl=1" %>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- container -->
 </header><!-- header -->
-
-
-
