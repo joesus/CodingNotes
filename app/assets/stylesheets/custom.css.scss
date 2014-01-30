@@ -138,6 +138,7 @@ li {
 /* Contact Form Specific Styling */
 //////////////////////////////////
 .form-control {
+  display: inline-block;
   &:focus {
     outline: 3px auto $activeText;
   }
