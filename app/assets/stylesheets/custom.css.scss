@@ -44,6 +44,7 @@ pre {
 /* Over-ride for page-header class */
 ////////////////////////////////////
 .page-header {
+  color: $activeText;
   margin-top: 0;
 }
 
@@ -82,6 +83,10 @@ html body {
 ///////////////////
 /* Main Content */
 /////////////////
+li {
+  text-align: left;
+}
+
 #center-notes {
 	margin-top: 15px;
 	padding: 15px; 
@@ -99,10 +104,6 @@ html body {
 
 #markedText {
   color: red;
-}
-
-li {
-  text-align: left;
 }
 
 .tab > p {
