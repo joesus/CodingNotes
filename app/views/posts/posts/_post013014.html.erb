@@ -1,0 +1,42 @@
+<div itemscope="" itemtype="http://schema.org/BlogPosting">
+	<article class="blog-post" id="01-30-14">
+		<p class="lead"><span itemprop="name">Out-firefoxed again!</span> - <time datetime="2014-01-10" itemprop="dateCreated">01/30/14</time></p>
+		<p>So this morning I received an email that my brand-new contact page was displaying funny on firefox.
+		</p>
+
+		<span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		  <span itemprop="name">
+	      <a href="https://plus.google.com/u/0/101336447282156886525/" itemprop="url" rel="author" class="hidden">Joe Susnick</a>
+		  </span><!-- itemprop="name" -->
+		</span><!-- itemtype="Person" -->
+
+		<span itemprop="keywords" class="hidden">
+			bootstrap form-control firefox overflow CSS Browser-Compatibility
+		</span>
+
+<span itemprop="articleBody">
+<pre><%= image_tag "firefoxoverflow.png", class: "img-responsive" %>
+</pre>
+ 
+<p>I was able to fix it really quickly by changing the css for the .form-control class from:</p>
+
+<pre>
+.form-control {
+	display: block;
+}
+</pre>
+
+<p>to:
+</p>
+
+<pre>
+.form-control {
+  display: inline-block;
+}
+</pre>
+
+<p>This was an easy fix but reminded me that I should keep a closer eye on browser compatibility if I want to reach the next level here. 
+</p>
+		</span><!-- articleBody -->
+	</article><!-- blog-post -->
+</div><!-- itemtype="BlogPosting" -->
