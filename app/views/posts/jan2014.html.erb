@@ -1,0 +1,33 @@
+<% content_for :title, "January 2014" %>
+<% content_for :sidebar do %>
+<div class="col-md-3" id="sidebar">
+		<div class="bs-sidebar hidden-print affix" role="complementary" style>
+		<ul class="nav bs-sidenav" id="spyOnThis">
+			<li class>
+				<%= link_to "January 2014 Posts", "#" %>
+				<ul class="nav">
+					<li class><%= link_to "Jan 30, 2014", "#01-30-14" %></li>
+					<li class><%= link_to "Jan 21, 2014", "#01-21-14" %></li>
+					<li class><%= link_to "Jan 18, 2014", "#01-18-14" %></li>
+					<li class><%= link_to "Jan 11, 2014", "#01-11-14" %></li>
+					<li class><%= link_to "Jan 08, 2014", "#01-08-14" %></li>
+					<li class><%= link_to "Jan 01, 2014", "#01-01-14" %></li>
+				</ul>
+			</li>
+	</div>
+</div>
+<% end %>
+
+<div class="page-header">
+  <h1>January 2014<br>
+  	<small>Here are my posts from January of 2014
+  	</small>
+  </h1>
+</div>
+
+<%= render 'posts/posts/post013014' %>
+<%= render 'posts/posts/post012114' %>
+<%= render 'posts/posts/post011814' %>
+<%= render 'posts/posts/post011114' %>
+<%= render 'posts/posts/post010814' %>
+<%= render 'posts/posts/post010114' %>

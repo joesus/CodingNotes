@@ -1,0 +1,55 @@
+<div itemscope="" itemtype="http://schema.org/BlogPosting">
+	<article class="blog-post", id="12-29-13">
+		<p class="lead"><span itemprop="name">What I learned today that I should have learned a while back.</span> - <time datetime="2013-12-29" itemprop="dateCreated">12/29/13</time></p>
+		
+		<span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		  <span itemprop="name">
+	      <a href="https://plus.google.com/u/0/101336447282156886525/" itemprop="url" rel="author" class="hidden">Joe Susnick</a>
+		  </span><!-- itemprop="name" -->
+		</span><!-- itemtype="Person" -->
+
+		<span itemprop="keywords" class="hidden">
+			goDaddy DNS CNAME Heroku Hosting Domain Name
+		</span>
+		
+		<span itemprop="articleBody">
+
+		So, I should have learned this before I learned anything about Rails, or http methods, or crud, or forms but live and learn is sort of the theme here anyway.
+		<br>
+		Today I bought a domain name (from <%= link_to "godaddy.com", "https://www.godaddy.com", target: "blank" %>) and spent the afternoon figuring out how to point it towards my site (hosted on heroku). 
+		<br>
+		<h4>First, the Basics</h4>
+		<ul>
+			<li>The domain name is part of the <strong>Domain Name System (DNS)</strong> - basically just a list of names that point to specific addresses. This list of records that binds the internet is held on servers at the bottom of a secret volcano. See the <%= link_to "wikipedia page", "http://en.wikipedia.org/wiki/Domain_Name_System", target: "blank" %> for facts to use at your next party.</li>
+			<li>The CNAME records is an abbreviation for Canonical Name record and is a type of resource record in the Domain Name System (DNS) used to specify that a domain name uses the IP addresses of another domain, the "canonical" domain. Basically it uses one address to point to another address which then points to an IP address.</li>
+		</ul>
+			<br>
+		From there it's really easy. Find the godaddy <strong>Domain Details</strong> page, click on the DNS Zone File tab:
+<pre>
+<%= link_to image_tag("DomainDetails.png"), class: "img-responsive" %>
+</pre>
+
+		Scroll down to the <strong>CNAME</strong> field:
+
+<pre>
+<%= link_to image_tag("Cname.png"), class: "img-responsive" %>
+</pre>			
+		And under 'www' put the name of the page you want your domain name to point towards. In this case, codingnotes.herokuapp.com.
+		<br></br>
+		The next step was to configure my heroku application to use a custom domain. There's a lot of information <%= link_to "here", "https://devcenter.heroku.com/articles/custom-domains", target: 'blank' %>, but basically you can do it easily through the command line with: 
+<pre>$ heroku domains:add nameofyoursite.com
+</pre>
+
+		A nice way to check your work is with:<pre>$ host</pre>
+		It's a linux DNS lookup utility that returns information about any website. It's a quick easy way to make sure your domain name points to your host. 
+<pre>$ host nameofyoursite.com</pre>
+Should return something like:
+<pre>
+nameofyoursite.com is an alias for codingnotes.herokuapp.com.
+codingnotes.herokuapp.com is an alias for foobar.herokuapp.com.
+foobar.herokuapp.com has address 111.222.333.etc...
+</pre>
+It's all really basic, I know, but I can do something now that I couldn't do when I woke up. So today was a good day.
+		</span><!-- articleBody -->
+	</article><!-- blog-post -->
+</div><!-- itemtype="BlogPosting" -->

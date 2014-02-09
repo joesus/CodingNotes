@@ -5,38 +5,29 @@
 		<ul class="nav bs-sidenav" id="spyOnThis">
 			<li class>
 				<%= link_to "Older Posts", "#" %>
-				<ul class="nav">
-
-					<li class><%= link_to "Feb 09, 2014", "#02-09-14" %></li>
-					<li class><%= link_to "Jan 30, 2014", "#01-30-14" %></li>
-					<li class><%= link_to "Jan 21, 2014", "#01-21-14" %></li>
-					<li class><%= link_to "Jan 18, 2014", "#01-18-14" %></li>
-					<li class><%= link_to "Jan 11, 2014", "#01-11-14" %></li>
-					<li class><%= link_to "Jan 08, 2014", "#01-08-14" %></li>
-					<li class><%= link_to "Jan 01, 2014", "#01-01-14" %></li>
-					<li class><%= link_to "Dec 29, 2013", "#12-29-13" %></li>
-					<li class><%= link_to "Dec 18, 2013", "#12-18-13" %></li>
-					<li class><%= link_to "Dec 12, 2013", "#12-12-13" %></li>
-				</ul>
 			</li>
+			<li class>
+				<%= link_to "February 2014", feb14_path %>
+			</li>
+			<li class>
+				<%= link_to "January 2014", jan14_path %>
+			</li>
+			<li class>
+				<%= link_to "December 2013", dec13_path %>
+			</li>
+		</ul>
 	</div>
 </div>
 <% end %>
 
-<div class="page-header">
-  <h1>Updates<br>
-  	<small>I plan on keeping a small journal here for the purposes of a) keeping myself accountable to my own education, and b) sharing what I learn as an aspiring junior developer with anyone who might benefit. To see some of my other projects, check out the <%= link_to "about", about_path %> page.
-  	</small>
-  </h1>
-</div>
 
-<%= render 'static_pages/posts/post020914' %>
-<%= render 'static_pages/posts/post013014' %>
-<%= render 'static_pages/posts/post012114' %>
-<%= render 'static_pages/posts/post011814' %>
-<%= render 'static_pages/posts/post011114' %>
-<%= render 'static_pages/posts/post010814' %>
-<%= render 'static_pages/posts/post010114' %>
-<%= render 'static_pages/posts/post122913' %>
-<%= render 'static_pages/posts/post121813' %>
-<%= render 'static_pages/posts/post121213' %>
+	<div class="page-header">
+	  <h1>Updates<br>
+	  	<small>I plan on keeping a small journal here for the purposes of a) keeping myself accountable to my own education, and b) sharing what I learn as an aspiring junior developer with anyone who might benefit. To see some of my other projects, check out the <%= link_to "about", about_path %> page.
+	  	</small>
+	  </h1>
+	</div>
+
+	<%= render 'posts/posts/post020914' %>
+	<%= render 'posts/posts/post013014' %>
+	<%= render 'posts/posts/post012114' %>

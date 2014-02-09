@@ -1,0 +1,63 @@
+<div itemscope="" itemtype="http://schema.org/BlogPosting">
+	<article class="blog-post" id="01-11-14">
+		<p class="lead"><span itemprop="name">Animating Bootstrap's ScrollSpy</span> - <time datetime="2014-01-11" itemprop="dateCreated">01/11/14</time></p>
+	
+		<span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		  <span itemprop="name">
+	      <a href="https://plus.google.com/u/0/101336447282156886525/" itemprop="url" rel="author" class="hidden">Joe Susnick</a>
+		  </span><!-- itemprop="name" -->
+		</span><!-- itemtype="Person" -->
+
+		<span itemprop="keywords" class="hidden">
+			Bootstrap ScrollSpy jQuery scrollTo CSS Animate
+		</span>
+	
+		<span itemprop="articleBody">
+
+
+		<p>So going through the jQuery projects I realized that I wanted to add animation to the sidebar. The sidebar is built using <%= link_to "Bootstrap's ScrollSpy" %> script.  
+		</p>
+
+		<p>A quick search found <%= link_to "this stackoverflow post", "http://stackoverflow.com/questions/8711333/bootstrap-js-scrollspy-with-animated-scroll/21065684#21065684", target: "blank" %> which introduced me to the jQuery scrollTo() script. (See: <%= link_to "plugins.jquery.com/scrollTo/", "http://plugins.jquery.com/scrollTo/", target: "blank" %> for more.</p>
+
+		<p>The solution from the post worked well enough but I wanted a more integrated solution.</p>
+		<p>First thing I did was add the scrollTo() script.</p>
+
+<pre>
+<span><</span>script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.3/jquery.scrollTo.min.js"><span><</span>/script>
+</pre>
+
+		<p>Then in the bootstrap.js file I located the ScrollSpy code.
+		</p>
+<pre>
+// SCROLLSPY CLASS DEFINITION
+// ==========================
+</pre>
+
+		<p>In the variable declarations, right under this.process() I declared the a scroll method:</p>
+
+<pre>
+this.scroll()
+</pre> 
+
+		<p>Then right under the ScrollSpy.prototype.activate function, and above:</p>
+<pre>
+// SCROLLSPY PLUGIN DEFINITION
+// ===========================
+</pre>
+
+		<p>I added the scroll() method that I declared earlier:</p>
+
+<pre>
+ScrollSpy.prototype.scroll = function (target) {
+  $('#spyOnThis').bind('click', 'ul li a', function(event) {
+      $.scrollTo(event.target.hash, 250);
+  });
+};
+</pre>
+	
+		<p>This exercise accomplished two goals. a) my code is tidy and concise as possible, b) visitors to my site have a less jarring experience while navigating.</p>
+
+		</span><!-- articleBody -->
+	</article><!-- blog-post -->
+</div><!-- itemtype="BlogPosting" -->
