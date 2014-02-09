@@ -9,16 +9,27 @@
       </button>
       <%= link_to "CodingNotes", root_url, class: 'navbar-brand' %>
     </div><!-- navbar-header -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <div itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "jQuery", jquery_path %></li>
-        <li><%= link_to "JS", js_path %></li>
-        <li><%= link_to "Ruby", ruby_path %></li>
-        <li><%= link_to "Heroku Shtuff", heroku_path %></li>
+          <li>
+            <%= link_to(content_tag(:span, "About", itemprop:"title"), about_path, html_options = {itemprop: "url"}) %>
+          </li>
+          <li>
+            <%= link_to(content_tag(:span, "jQuery", itemprop:"title"), jquery_path, html_options = {itemprop: "url"}) %>
+          </li>
+          <li>
+            <%= link_to(content_tag(:span, "JS", itemprop:"title"), js_path, html_options = {itemprop: "url"}) %>
+          </li>
+          <li>
+            <%= link_to(content_tag(:span, "Ruby", itemprop:"title"), ruby_path, html_options = {itemprop: "url"}) %>
+          </li>
+          <li>
+            <%= link_to(content_tag(:span, "Heroku", itemprop:"title"), heroku_path, html_options = {itemprop: "url"}) %>
+          </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class=""><%= link_to '<i class="fa fa-envelope"></i> Contact'.html_safe, contact_path %>
+        <li class="">
+          <%= link_to '<span itemprop="title"><i class="fa fa-envelope"></i> Contact</span>'.html_safe, contact_path %>
         </li>
         <li class="">
           <%= link_to '<i class="fa fa-cloud-download"></i> Resume'.html_safe, "https://www.dropbox.com/s/b03hkk7ygsctxwz/Joe%20Susnick%20Resume%202014.doc/?dl=1" %>
