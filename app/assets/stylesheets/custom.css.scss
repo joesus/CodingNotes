@@ -144,6 +144,37 @@ li {
   }
 }
 
+///////////////////////////////////////
+/* Scrolling post example (2/12/14) */
+/////////////////////////////////////
+@-webkit-keyframes bgslide {
+  from { background-position:0 0;}
+  to { background-position:0 -500px;}
+}
+
+@-moz-keyframes bgslide {
+  from { background-position:0 0;}
+    to { background-position:0 -500px;}
+}
+
+.splash {
+  overflow: hidden;
+  height: 200px;
+  background-size: auto;
+  background-color: #f8fafb;
+  background-image: url(codebackground.png);
+  background-position: center 0;
+  background-repeat: repeat;
+  -webkit-animation: bgslide 20s linear 0s infinite normal none; 
+  -moz-animation: bgslide 20s linear 0s infinite normal none;
+}
+
+#splash-example {
+  text-align: center;
+  margin-top: 50px;
+  border-left: none;
+}
+
 ////////////////////////////////////
 /* Contact Specific Styling */
 //////////////////////////////////
