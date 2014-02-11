@@ -18,6 +18,7 @@ CodingNotes::Application.routes.draw do
   match '/bounty',  to: "jqueryprojects#bounty",  via: 'get'
   match '/bounty/about', to: "jqueryprojects#bountyhunterabout", via: 'get'
   match '/bountyhunterlist', to: "jqueryprojects#bountyhunterlist", via: 'get'
+  match '/parallax',to: "jqueryprojects#parallax",via: 'get'
 
   match '/dec13',   to: "posts#dec2013",          via: 'get'
   match '/jan14',   to: "posts#jan2014",           via: 'get'

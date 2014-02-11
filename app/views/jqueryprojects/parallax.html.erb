@@ -1,0 +1,68 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "parallax.css" %>
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script>
+	$(window).bind('scroll',function(e){
+	    parallaxScroll();
+	});
+	 
+	function parallaxScroll(){
+	    var scrolled = $(window).scrollTop();
+	    $('#parallax-bg1').css('top',(0-(scrolled*.25))+'px');
+	    $('#parallax-bg2').css('top',(0-(scrolled*.5))+'px');
+	    $('#parallax-bg3').css('top',(100-(scrolled*.75))+'px');
+	}
+	</script>
+<% end %>
+
+<div class="wrapper">
+
+	<div id="content">
+		<article id="be-an-astronaut">
+			<header>
+				<h1>Visit Space Today</h1>
+			</header>
+			<p>The adventure of a lifetime! Feel your cares melt away as the weight of the world is lifted from your shoulders.
+			</p>
+		</article>
+
+		<article id="stay-in-a-capsule">
+			<header>
+				<h1>Relax in Our Luxury Capsules</h1>
+			</header>
+			<p>Safe and sound 1000miles above earth! All of our capsules come equipped with the latest in weightless luxury. Gravity shower anyone?</p>
+		</article>
+
+		<article id="take-a-walk">
+			<header>
+				<h1>Take a Space Walk</h1>
+			</header>
+			<p>Feel the air beneath your feet as you walk the world over. Stroll from the California coast to the isles of Greece in mere minutes. The world is yours!</p>
+		</article>
+	</div><!-- content -->
+	
+
+	<section id="parallax-bg3" data-type="background">
+		<%= image_tag 'space-capsule.png', id: 'bg3-1' %>
+		<%= image_tag 'space-astronaut.png', id: 'bg3-2' %>
+		<%= image_tag 'space-earth.png', id: 'bg3-3', width: '800px'; %>
+		<%= image_tag 'learnmore.png', id: 'bg3-4', width: '800px'; %>
+	</section>
+
+	<section id="parallax-bg2" data-type="background">
+
+		<%= image_tag 'space-saturn.png', id: 'bg2-1' %>
+		<%= image_tag 'space-saturn.png', id: 'bg2-2' %>
+		<%= image_tag 'space-saturn.png', id: 'bg2-3' %>
+		<%= image_tag 'space-saturn.png', id: 'bg2-4' %>
+		<%= image_tag 'space-saturn.png', id: 'bg2-5' %>
+	</section>
+
+	<section id="parallax-bg1" data-type="background">
+		<%= image_tag 'space-jupiter.png', id: 'bg1-1' %>
+		<%= image_tag 'space-jupiter.png', id: 'bg1-2' %>
+		<%= image_tag 'space-jupiter.png', id: 'bg1-3' %>
+		<%= image_tag 'space-jupiter.png', id: 'bg1-4' %>
+	</section>
+
+</div><!-- wrapper -->
