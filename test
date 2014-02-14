@@ -1,0 +1,7 @@
+  5. Vim will write the selected lines to the file TEST.  Use  :!dir  or  !ls
+     to see it.  Do not remove it yet!  We will use it in the next lesson.
+
+NOTE:  Pressing  v  starts Visual selection.  You can move the cursor around
+       to make the selection bigger or smaller.  Then you can use an operator
+       to do something with the text.  For example,  d  deletes the text.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,0 +1,167 @@
+<div itemscope="" itemtype="http://schema.org/BlogPosting">
+	<article class="blog-post" id="02-13-14">
+		<p class="lead"><span itemprop="name">Set up with Vim</span> - <time datetime="2014-02-13" itemprop="dateCreated">02/13/14</time></p>
+
+		<span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		  <span itemprop="name">
+	      <a href="https://plus.google.com/u/0/101336447282156886525/" itemprop="url" rel="author" class="hidden">Joe Susnick</a>
+		  </span><!-- itemprop="name" -->
+		</span><!-- itemtype="Person" -->
+
+		<span itemprop="keywords about" class="hidden">
+			VIM Vim-Rails Pathogen vimtutor rails.vim colorscheme nerdtree supertab syntastic jshint .vimrc snippets autocomplete snipmate
+		</span>
+		
+		<span itemprop="articleBody">
+
+			I went to an interview the other day and they suggested I learn to code with vim. Here's a step by step How to Setup VIM on a Mac so you can do it all from one site - I went to something like twenty.
+		<br><br/>
+			Here are the steps.
+		<br><br/>
+
+			<ol>
+				<li>
+					See if you have Vim installed. From the terminal:
+<pre>
+$ vim -version
+</pre>
+				</li>
+
+				<li>
+					You should see it installed but if not you can get a copy with a quick google search. I recommend taking a few minutes and going through the vim tutorial. It's really helpful and answered a lot of questions I had about vim. Bonus: It was written by a guy from School of Mines, go Colorado.
+<pre>
+$ vimtutor
+</pre>
+				</li>
+
+				<li>
+					Create a a file <code>.vimrc</code>, and a directory <code>.vim</code>. These are what you'll use to configure your VIM.
+					They should exist in your main directory. A good way to ensure this is to do it from the command line:
+<pre>
+$ cd
+$ mkdir .vim
+$ touch .vimrc
+</pre>
+				</li>
+
+				<li>
+					Install <%= link_to "pathogen vim", "https://github.com/tpope/vim-pathogen", target: 'blank', itemprop: "isBasedOnUrl" %>. He has great instructons on his readme but just to keep you in one place.
+
+<pre>
+$ mkdir -p ~/.vim/autoload ~/.vim/bundle; \
+curl -Sso ~/.vim/autoload/pathogen.vim \
+    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+</pre>
+				</li>
+
+				<li>
+					Add pathogen to your <code>.vimrc</code> file.
+<pre>
+execute pathogen#infect()
+</pre>
+				</li>
+
+				<li>
+					Install rails.vim from the <%= link_to "vim-rails page", "https://github.com/tpope/vim-rails", target: 'blank', itemprop: "isBasedOnUrl" %>
+<pre>
+$ cd ~/.vim/bundle
+$ git clone git://github.com/tpope/vim-rails.git
+$ git clone git://github.com/tpope/vim-bundler.git
+</pre>
+				</li>
+
+				<li>
+					Install a color scheme. There are a million different colorschemes with vim, find one you like, and place it in a <code>colors</code> folder that you'll put in your <code>.vim</code> directory.
+<pre>
+$ cd ~/.vim    //if you're not still there
+$ mkdir colors
+</pre>
+					Your file tree should look like this:
+<pre>
+|-- .vim
+|  |-- autoload
+|	 |-- bundle
+|	 |-- colors
+|		'- railscasts.vim
+|-- .vimrc
+</pre>
+
+					In your <code>.vimrc</code> file, add the following:
+<pre>
+syntax enable
+filetype plugin indent on
+colorscheme railscasts
+</pre>
+				</li>
+
+				<li>
+					Getting NERDTREE up and running.
+<pre>
+$ cd ~/.vim/bundle
+$ git clone https://github.com/scrooloose/nerdtree.git
+</pre>
+					Add the following to <code>.vimrc</code> in order to see hidden files and folders in NERDTree.
+<pre>
+let NERDTreeShowHidden=1
+</pre>
+					Open vim and type <code>:NERDTree</code> and you'll see a filetree appear in a new pane. Get rid of it again with <code>:NERDTreeToggle</code>. The colon will make sense after the vimtutor, promise. 
+				</li>
+				<br>
+				<li>
+					Add snippets. I chose to go with <%= link_to "SnipMate", "https://github.com/garbas/vim-snipmate", target: 'blank', itemprop: "isBasedOnUrl" %> for no other reason that that it had the easiest setup. This is the setup using pathogen since we're using it already. The optional line adds the snippets.
+<pre>
+$ cd ~/.vim/bundle
+$ git clone https://github.com/tomtom/tlib_vim.git
+$ git clone https://github.com/MarcWeber/vim-addon-mw-utils.git
+$ git clone https://github.com/garbas/vim-snipmate.git
+
+# Optional:
+$ git clone https://github.com/honza/vim-snippets.git
+</pre>
+				</li>
+
+				<li>This one is important <%= link_to "SuperTab", "https://github.com/ervandew/supertab", target: "blank", itemprop: "isBasedOnUrl" %> lets you auto-complete while typing. First install it with:
+<pre>
+$ cd ~/.vim/bundle
+$ git clone https://github.com/ervandew/supertab.git
+</pre>
+				</li>
+
+				<li>
+					Set up a linter. I decided to use <%= link_to "Syntastic", "https://github.com/scrooloose/syntastic", target: 'blank', itemprop: "isBasedOnUrl" %>. The setup was really similar to everything else I did. 
+<pre>
+$ cd ~/.vim/bundle
+$ git clone https://github.com/scrooloose/syntastic.git
+</pre>
+				Everything worked instantly for me except for jshint. I eventually found <%= link_to "this post", "http://stackoverflow.com/questions/473478/vim-jslint/5893447#5893447", target: 'blank', itemprop: "isBasedOnUrl" %> which explained what was going on. Save yourself the reading and just type the two commands below.
+<pre>
+$ npm install -g jshint
+$ export PATH="$PATH:/usr/local/share/npm/bin"
+ <strong>RESTART YOUR TERMINAL WINDOW FOR CHANGES TO REGISTER.</strong>
+</pre> 	
+				Open up a javascript file with vim and type <code>:SyntasticInfo</code>. The output in the buffer window should look like so:
+<pre>
+--> Syntastic active mode enabled
+--> Syntastic info for filetype: javascript
+--> Available checker(s): jshint
+--> Currently enabled checker(s): jshint
+</pre>
+				In my <code>.vimrc</code> I added the following:
+<pre>
+"""""""""""""""""""""""""""""""
+" => Syntastic Config Options "
+"""""""""""""""""""""""""""""""
+let g:syntastic_disabled_filetypes=['html']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+</pre>
+
+				</li>
+				<li>
+					One last thing. VIM has really really excellent configuration options. I found a link to <%= link_to "alternative vim setup", "https://github.com/amix/vimrc", target: 'blank', itemprop: "isBasedOnUrl" %> and he has a really excellent <code>.vimrc</code> file. I definitely recommend going through it and seeing how you can make your vim more user friendly.
+				</li>
+			</ol>		
+		</span><!-- articleBody -->
+	</article><!-- blog-post -->
+</div><!-- itemtype="BlogPosting" -->
