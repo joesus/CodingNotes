@@ -35,5 +35,6 @@ module CodingNotes
       enable_starttls_auto: true  }
     
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.cache_store = :dalli_store
   end
 end
