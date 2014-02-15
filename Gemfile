@@ -49,4 +49,5 @@ group :production do
   gem 'dalli'
   gem 'kgio'
   gem 'heroku-deflater'
+  gem 'memcachier'
 end
