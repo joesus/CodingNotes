@@ -1,0 +1,49 @@
+<div itemscope="" itemtype="http://schema.org/BlogPosting">
+<article class="blog-post" id="02-16-14">
+<p class="lead"><span itemprop="name">Brewing Ctags</span> - <time datetime="2014-02-16" itemprop="dateCreated">02/16/14</time></p>
+
+<span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span itemprop="name">
+        <a href="https://plus.google.com/u/0/101336447282156886525/" itemprop="url" rel="author" class="hidden">Joe Susnick</a>
+    </span><!-- itemprop="name" -->
+</span><!-- itemtype="Person" -->
+
+<span itemprop="keywords" class="hidden">
+  HomeBrew Home Brew Mac Vim OSX Ctags ctags -R Hide bundle Ruby-on-Rails Ruby
+</span>
+<span itemprop="articleBody">
+
+    So I was messing with the Vim setup a bit more and I came across an issue. My call to create ctags wasn't working. I kept getting the error:
+<pre>
+$ ctags: illegal option -- R
+$ usage: ctags [-BFadtuwvx] [-f tagsfile] file ...
+</pre>
+    I brilliantly troubleshot this by googling the error and discovered that when you install with homebrew you need to add an alias to the call:
+<pre>
+$ alias ctags="`brew --prefix`/bin/ctags"
+</pre>
+    Then the call worked but I wanted to have access to more source code since I'm trying to learn a bit more about what's under the hood (the rails hood that is). When I generated the call I added the line:
+<pre>
+. $(bundle list --paths)
+</pre>
+    So the full call is:
+<pre>
+$ ctags -R -f .tags . $(bundle list --paths) --exclude=.git --exclude=lot*
+</pre>
+    The call now takes <code>-R</code> which looks regressively through your files, <code>-f</code> which designates a folder (in this case the hidden <code>.tags</code>) and <code>--exclude</code> which we use to get rid of git and other miscellaneous files. All in all this setup is working really well, thanks to  <%= link_to "coderwall ", "https://coderwall.com/p/du_sgq" %>, and  <%= link_to "Andrew Stewarts Blog", "blog.stwrt.ca/2012/10/31/vim-ctags" %> for the tips.
+<br />
+    One last thing, I added  <%= link_to "tagbar", "https://github.com/majutsushi/tagbar" %>. First add the plugin:
+<pre>
+$ cd ~/.vim/bundle
+$ git clone https://github.com/majutsushi/tagbar
+</pre>
+                                                                               
+    I really like this plugin. After you hone in on a ctag with <code>control-]</code> simply type <code>:TagbarToggle</code> or map it to <code><span><</span>Leader>b</code> by adding the following to your <code>.vimrc</code> file.
+<pre>
+nnoremap <silent><span><</span>Leader>b :TagbarToggle<cr>
+</pre>
+
+        </span><!-- articleBody -->
+    </article><!-- blog-post -->
+</div><!-- itemtype="BlogPosting" -->
+                                                                       
