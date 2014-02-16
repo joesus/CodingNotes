@@ -1,0 +1,20 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "common.css", "sliding-puzzle.css" %>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <%= javascript_include_tag "sliding-puzzle.js" %>
+     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<% end %>
+
+<% content_for :title, "Sliding Puzzle" %>
+
+<body>
+<div id="puzzle" class="clearfix">
+  <figure>
+    <%= image_tag("barn_owl.jpg") %>
+  </figure>
+  <div id="puzzle-ui">
+   <p id="time">Current time: <span>00:00:00</span></p>
+   <button id="start">Start!</button>
+  </div>
+</div>
+</body>

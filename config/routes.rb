@@ -8,7 +8,6 @@ CodingNotes::Application.routes.draw do
   match '/ruby',    to: "static_pages#ruby",      via: 'get'
   match '/js',      to: "static_pages#js",        via: 'get'
   match '/heroku',  to: "static_pages#heroku",    via: 'get'
-  match '/puzzle',  to: "static_pages#sliding-puzzle",via: 'get'
   match '/email',   to: "static_pages#email",     via: 'get'
 
   match '/contact', to: "contact#new",            via: 'get'
@@ -19,6 +18,7 @@ CodingNotes::Application.routes.draw do
   match '/bounty/about', to: "jqueryprojects#bountyhunterabout", via: 'get'
   match '/bountyhunterlist', to: "jqueryprojects#bountyhunterlist", via: 'get'
   match '/parallax',to: "jqueryprojects#parallax",via: 'get'
+  match '/puzzle',  to: "jqueryprojects#sliding-puzzle", via: "get"
 
   match '/dec13',   to: "posts#dec2013",          via: 'get'
   match '/jan14',   to: "posts#jan2014",           via: 'get'

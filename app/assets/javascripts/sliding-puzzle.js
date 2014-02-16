@@ -268,7 +268,7 @@ ready = function() {
                 bottom: parseInt(el.css("top")) + pieceH,
                 left: parseInt(el.css("left")),
                 right: parseInt(el.css("left")) + pieceW
-            }
+            };
         }
     });
 };

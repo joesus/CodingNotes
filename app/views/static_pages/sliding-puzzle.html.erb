@@ -1,7 +1,12 @@
-<% content_for :sidebar do %>
-<div class="col-md-3" id="sidebar">
-</div>
+<% content_for :head do %>
+    <%= stylesheet_link_tag "common.css", "puzzle.css" %>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js">
+</script>
+    <%= javascript_include_tag "sliding-puzzle" %>       
 <% end %>
+
+<body>
+
 
 <div id="puzzle" class="clearfix">
   <figure>
@@ -12,3 +17,4 @@
    <button id="start">Start!</button>
   </div>
 </div>
+</body>
