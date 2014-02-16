@@ -39,3 +39,4 @@ Thumbs.db
 # Sensitive Information #
 #########################
 .env
+tags
