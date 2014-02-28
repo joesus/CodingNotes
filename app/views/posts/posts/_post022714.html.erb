@@ -1,0 +1,79 @@
+<div itemscope="" itemtype="http://schema.org/BlogPosting">
+	<article class="blog-post" id="02-27-14">
+		<p class="lead"><span itemprop="name">More Vim Tips</span> - <time datetime="2014-02-09" itemprop="dateCreated">02/27/14</time></p>
+
+		<span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+		  <span itemprop="name">
+	      <a href="https://plus.google.com/u/0/101336447282156886525/" itemprop="url" rel="author" class="hidden">Joe Susnick</a>
+		  </span><!-- itemprop="name" -->
+		</span><!-- itemtype="Person" -->
+
+		<span itemprop="keywords" class="hidden">
+      Vim MacVim Tips Hints Tricks surround.vim buffer command-t SublimeText2
+		</span>
+		
+		<span itemprop="articleBody">
+      <p>So I finally got MacVim working better than my old SublimeText2 setup. There was no question that Vim would be faster once I got my fingers around it, but I was worried about missing out on the plugins and functionality I was used to. 
+      </p>
+      <p>The first thing was command-T working the way I was used to. <%= link_to "Command-T", "https://github.com/wincent/Command-T", target: "blank" %> is this wonderful powerful plugin that lets you search through a project with a 'path-centric' approach. This is really similar to the Command-t command in SublimeText2 but takes a tiny bit of configuration to get working. I was just reading this <%= link_to "post/rant", "http://delvarworld.github.io/blog/2013/03/16/just-use-sublime-text/", target: "blank" %> on why someone should use Sublime Text over vim but I'm still convinced vim is faster, especially with the <%= link_to "vim-rails", "https://github.com/tpope/vim-rails", target: "blank" %> plugin.</p>
+
+      <p>Here are the lines that really got me going here.
+<pre>      
+#.vimrc
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Command-T 
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:CommandTMaxHeight=10
+let g:CommandTIncludeFilenames=1
+let g:CommandTWildIgnore=&wildignore . ",**/images/*,**/tmp/*,**/public/assets/*"
+"I left this in to remind myself that it won't scan /.*/
+"directories unless I tell it to. I may want it to in 
+"the future
+let g:CommandTScanDotDirectories=0
+</pre>
+        The absolutely key thing for me here was the wildignore. I opened up SublimeText2 again to see if they also included tmp files in their search, and while they do, they send them towards the bottom so you don't really notice them. With Command-T, you need to explicitly 86 them from your results but once you do you never have to think about them ever again. Unless you really want to, in which case you can use grep or nerdtree to find them easy enough.  
+      </p>
+      <p>The other thing I did on vim today was fixing the <%= link_to "Surround.vim", "https://github.com/tpope/vim-surround", target: "blank"%> plugin. Well, not fixing it, but adding some mappings so it's not a nightmare to use. I found a great post with the following so I can't take credit for any of it but if you use a GUI editor like <%= link_to "macvim", "https://code.google.com/p/macvim/", target: "blank" %> you can select text with a mouse, or "v" and add your styling around it.</p>
+<pre>
+#.vimrc
+
+vmap ' S'
+vmap " S"
+vmap { S{
+vmap } S}
+vmap ( S(
+vmap ) S)
+vmap [ S[
+vmap ] S]
+
+" tags
+vmap < S<
+vmap > S<span>></span>
+
+" addressing the problem introduced by tags
+vnoremap <<span><</span> <
+vnoremap ><span>> </span>>
+</pre>
+
+      <p>
+        One last thing I did to get macvim working like my trusty old sublime text was to add a keymapping to <code>.gvimrc</code> to be able to resize the buffers with &#8984; &#8592; &#8593; &#8594; &#8595; 
+<pre>
+#.gvmirc
+
+" resize current buffer by +/- 5 
+nnoremap <D-left> :vertical resize -5<cr>
+nnoremap <D-down> :resize +5<cr>
+nnoremap <D-up> :resize -5<cr>
+nnoremap <D-right> :vertical resize +5<cr>
+</pre>
+</p>   
+      <p>
+        I know I keep saying one last thing, but one last thing: When you lose track of your zillion keymappings, you can always use <code>:help key-notation</code>
+      </p>
+      <p>
+        I should say, I half agree with the ranty-post I read. Configuring vim is really complicated and there's a million ways to tinker with it, but here's the thing. I'm a tinkerer. I ENJOY messing with keymappings and settings. It's a hobby, like a nice stereo, you're always turning knobs searching for that perfect pitch. Maybe in my next life I'll build model trains. 
+      </p>
+		</span><!-- articleBody -->
+	</article><!-- blog-post -->
+</div><!-- itemtype="BlogPosting" -->
